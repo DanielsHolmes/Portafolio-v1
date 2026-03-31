@@ -1,0 +1,7 @@
+title: Mis herramientas de trabajo
+
+Frontend: Three.js, GSAP, 
+CMS: WordPress, Elementor Pro, Shopify, framer
+IA: ComfyUI, Claude Code, Flow
+Diseño: Figma, Adobe Suite 
+Performance UX: attentioninsight

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>OS Web Experience</title>
+    <link rel="icon" type="image/png" href="img/Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Desktop Background -->
+    <div class="desktop" style="background: url('img/background desktop.avif') center/cover no-repeat;">
+        <!-- Ambient Gradient Overlay -->
+        <div class="ambient-bg"></div>
+
+        <!-- Desktop Icons -->
+        <div class="desktop-icons">
+            <div class="desktop-icon" onclick="openWindow('about')">
+                <div class="icon-content img-icon">
+                    <img src="img/profile img .webp" alt="About">
+                </div>
+                <span>About Me</span>
+            </div>
+            <div class="desktop-icon" onclick="openWindow('projects')">
+                <div class="icon-content img-icon">
+                    <img src="icons/proyects.avif" alt="Projects">
+                </div>
+                <span>Projects</span>
+            </div>
+            <div class="desktop-icon" onclick="openWindow('notes')">
+                <div class="icon-content img-icon">
+                    <img src="icons/notes.svg" alt="Notes">
+                </div>
+                <span>Notes</span>
+            </div>
+        </div>
+
+        <!-- About Me Window -->
+        <div class="window active" id="about-window" style="left: 100px; top: 80px; width: 500px; z-index: 101;">
+            <div class="resize-handle resize-nw" onmousedown="startResize(event, 'about-window', 'nw')"></div>
+            <div class="resize-handle resize-n" onmousedown="startResize(event, 'about-window', 'n')"></div>
+            <div class="resize-handle resize-ne" onmousedown="startResize(event, 'about-window', 'ne')"></div>
+            <div class="resize-handle resize-w" onmousedown="startResize(event, 'about-window', 'w')"></div>
+            <div class="resize-handle resize-e" onmousedown="startResize(event, 'about-window', 'e')"></div>
+            <div class="resize-handle resize-sw" onmousedown="startResize(event, 'about-window', 'sw')"></div>
+            <div class="resize-handle resize-s" onmousedown="startResize(event, 'about-window', 's')"></div>
+            <div class="resize-handle resize-se" onmousedown="startResize(event, 'about-window', 'se')"></div>
+            <div class="window-header" onmousedown="startDrag(event, 'about-window')">
+                <div class="window-controls">
+                    <button class="control close" onclick="closeWindow('about-window')"></button>
+                    <button class="control minimize" onclick="minimizeWindow('about-window')"></button>
+                    <button class="control expand"></button>
+                </div>
+                <div class="window-title">About Me</div>
+            </div>
+            <div class="window-content">
+                <div class="about-container">
+                    <div class="profile-section">
+                        <div class="avatar">
+                            <img src="img/profile img .webp" alt="Daniel Santiago Moyano" class="avatar-img">
+                        </div>
+                        <div class="profile-info">
+                            <h2>Daniel Santiago Moyano</h2>
+                            <p class="subtitle">Senior Frontend Designer | Product Designer | WordPress Architect |
+                                AI-Enhanced Web Developer | Three.js & GSAP Expert | ComfyUI & Workflow Designer | UX/UI
+                                Strategist | Creative Technical Developer</p>
+                        </div>
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <span class="label">Experience</span>
+                            <span class="value">8+ Years</span>
+                        </div>
+                        <div class="info-card">
+                            <span class="label">Projects</span>
+                            <span class="value">50+</span>
+                        </div>
+                        <div class="info-card">
+                            <span class="label">Focus</span>
+                            <span class="value">3D & AI</span>
+                        </div>
+                    </div>
+                    <div class="bio-section">
+                        <p class="bio">
+                            Soy Daniel Santiago Moyano, un perfil Senior en Diseño y Desarrollo Web con más de 8 años
+                            transformando productos digitales (Websites, E-commerce, Apps y SaaS).
+                        </p>
+                        <p class="bio">
+                            Mi metodología une el diseño basado en datos y mapas de atención con una ejecución técnica
+                            robusta en WordPress y Shopify. Potencio la eficiencia y la creatividad mediante IA
+                            Generativa: utilizo ComfyUI y Flow para assets visuales únicos y variantes de producto, y
+                            Claude Code para entregar prototipos funcionales en menos de 24 horas.
+                        </p>
+                        <p class="bio">
+                            Domino el ecosistema Adobe y Figma, pero mi valor diferencial está en el Front-End avanzado:
+                            implemento Three.js y GSAP para crear animaciones y objetos 3D interactivos que no solo
+                            embellecen, sino que elevan la retención y el impacto de marca, asegurando que tu producto
+                            destaque en un mercado saturado.
+                        </p>
+                        <div class="stack-section">
+                            <h4>Stack & Herramientas:</h4>
+                            <ul class="stack-list">
+                                <li><strong>Dev & CMS:</strong> WordPress, Shopify, Three.js, GSAP</li>
+                                <li><strong>Design:</strong> Figma, Adobe Suite</li>
+                                <li><strong>AI Workflow:</strong> ComfyUI, Flow, Claude Code</li>
+                                <li><strong>Strategy:</strong> Data-driven Design, Attention Maps</li>
+                            </ul>
+                        </div>
+                        <div class="specialty-section">
+                            <h4>Especialidad en:</h4>
+                            <ul class="specialty-list">
+                                <li>Experiencias inmersivas 3D</li>
+                                <li>Microinteracciones que mejoran UX</li>
+                                <li>Workflows híbridos (IA + Diseño Tradicional)</li>
+                                <li>Arquitectura de CMS escalable</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Window (Finder Style) -->
+        <div class="window finder-style" id="projects-window"
+            style="left: 400px; top: 60px; width: 600px; height: 450px; z-index: 100;">
+            <div class="resize-handle resize-nw" onmousedown="startResize(event, 'projects-window', 'nw')"></div>
+            <div class="resize-handle resize-n" onmousedown="startResize(event, 'projects-window', 'n')"></div>
+            <div class="resize-handle resize-ne" onmousedown="startResize(event, 'projects-window', 'ne')"></div>
+            <div class="resize-handle resize-w" onmousedown="startResize(event, 'projects-window', 'w')"></div>
+            <div class="resize-handle resize-e" onmousedown="startResize(event, 'projects-window', 'e')"></div>
+            <div class="resize-handle resize-sw" onmousedown="startResize(event, 'projects-window', 'sw')"></div>
+            <div class="resize-handle resize-s" onmousedown="startResize(event, 'projects-window', 's')"></div>
+            <div class="resize-handle resize-se" onmousedown="startResize(event, 'projects-window', 'se')"></div>
+            <div class="window-header" onmousedown="startDrag(event, 'projects-window')">
+                <div class="window-controls">
+                    <button class="control close" onclick="closeWindow('projects-window')"></button>
+                    <button class="control minimize" onclick="minimizeWindow('projects-window')"></button>
+                    <button class="control expand"></button>
+                </div>
+                <div class="window-title">Projects</div>
+            </div>
+            <div class="finder-toolbar">
+                <div class="finder-nav">
+                    <button class="nav-btn">&#8249;</button>
+                    <button class="nav-btn">&#8250;</button>
+                </div>
+                <div class="finder-path">
+                    <span>Portfolio</span>
+                    <span class="separator">/</span>
+                    <span>Projects</span>
+                </div>
+            </div>
+            <div class="window-content finder-content">
+                <div class="finder-sidebar">
+                    <div class="sidebar-section">
+                        <span class="sidebar-title">Favorites</span>
+                        <div class="sidebar-item active" onclick="filterProjects('all')">
+                            <span>All Projects</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <span class="sidebar-title">Categories</span>
+                        <div class="sidebar-item" onclick="filterProjects('UX/UI Design')">
+                            <span>UX/UI Design</span>
+                        </div>
+                        <div class="sidebar-item" onclick="filterProjects('Branding')">
+                            <span>Branding</span>
+                        </div>
+                        <div class="sidebar-item" onclick="filterProjects('Web Design')">
+                            <span>Web Design</span>
+                        </div>
+                        <div class="sidebar-item" onclick="filterProjects('Mobile App')">
+                            <span>Mobile App</span>
+                        </div>
+                        <div class="sidebar-item" onclick="filterProjects('Enterprise')">
+                            <span>Enterprise</span>
+                        </div>
+                        <div class="sidebar-item" onclick="filterProjects('Dashboard')">
+                            <span>Dashboard</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="finder-main">
+                    <div class="project-list" id="project-list">
+                        <div class="project-item"
+                            data-tags="UX/UI Design,SAS Design,Dashboard,Enterprise Software,Usability"
+                            onclick="openProject('corsox')">
+                            <div class="project-thumb">
+                                <img src="Img Proyectos/Corsox/Corsox Gallery 01.webp" alt="Corsox Farmatodo">
+                            </div>
+                            <span class="project-name">Corsox Farmatodo</span>
+                            <span class="project-date">2025</span>
+                        </div>
+                        <div class="project-item" data-tags="UX/UI Design,Branding,Mobile App,Illustration"
+                            onclick="openProject('saldo')">
+                            <div class="project-thumb">
+                                <img src="Img Proyectos/Saldo/Saldo gallery 01.webp" alt="Saldo App">
+                            </div>
+                            <span class="project-name">Saldo App</span>
+                            <span class="project-date">2025</span>
+                        </div>
+                        <div class="project-item" data-tags="Branding,Visual Identity,Illustration,Strategy"
+                            onclick="openProject('dulcegracia')">
+                            <div class="project-thumb">
+                                <img src="Img Proyectos/Dulce Gracia/Dulce Gracia Gallery 01.webp" alt="Dulce Gracia">
+                            </div>
+                            <span class="project-name">Dulce Gracia</span>
+                            <span class="project-date">2025</span>
+                        </div>
+                        <div class="project-item" data-tags="UX Research,Information Architecture,Web Design,Usability"
+                            onclick="openProject('conalpe')">
+                            <div class="project-thumb">
+                                <img src="Img Proyectos/Conalpe/Conalpe Gallery 01.webp" alt="Conalpe">
+                            </div>
+                            <span class="project-name">Conalpe</span>
+                            <span class="project-date">2024</span>
+                        </div>
+                    </div>
+                    <div class="no-projects" id="no-projects" style="display: none;">
+                        <p>No projects found in this category</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes Window -->
+        <div class="window notes-window closed" id="notes-window" style="left: 150px; top: 150px; display: none;">
+            <div class="resize-handle resize-nw" onmousedown="startResize(event, 'notes-window', 'nw')"></div>
+            <div class="resize-handle resize-n" onmousedown="startResize(event, 'notes-window', 'n')"></div>
+            <div class="resize-handle resize-ne" onmousedown="startResize(event, 'notes-window', 'ne')"></div>
+            <div class="resize-handle resize-w" onmousedown="startResize(event, 'notes-window', 'w')"></div>
+            <div class="resize-handle resize-e" onmousedown="startResize(event, 'notes-window', 'e')"></div>
+            <div class="resize-handle resize-sw" onmousedown="startResize(event, 'notes-window', 'sw')"></div>
+            <div class="resize-handle resize-s" onmousedown="startResize(event, 'notes-window', 's')"></div>
+            <div class="resize-handle resize-se" onmousedown="startResize(event, 'notes-window', 'se')"></div>
+            <div class="window-header" onmousedown="startDrag(event, 'notes-window')">
+                <div class="window-controls">
+                    <button class="control close" onclick="closeWindow('notes-window')"></button>
+                    <button class="control minimize" onclick="minimizeWindow('notes-window')"></button>
+                    <button class="control expand"></button>
+                </div>
+                <div class="window-title">Notes</div>
+            </div>
+            <div class="window-content notes-content">
+                <div class="notes-sidebar">
+                    <div class="notes-list">
+                        <div class="note-item active" onclick="selectNote(0)">
+                            <h4>Oferta de valor</h4>
+                            <p>Inteligencia Artificial & Flujos de Trabajo Híbridos 🎨 Animación & Interacción de
+                                Alto Nivel 🛠️ Tech Stack Especializado</p>
+                            <span class="note-date">Today</span>
+                        </div>
+                        <div class="note-item" onclick="selectNote(1)">
+                            <h4>Mis herramientas de trabajo</h4>
+                            <p>Frontend: Three.js, GSAP CMS: WordPress, Elementor Pro, Shopify, framer IA: ComfyUI,
+                                Claude Code, Flow</p>
+                            <span class="note-date">Today</span>
+                        </div>
+                        <div class="note-item" onclick="selectNote(2)">
+                            <h4>Mi Trayectoria - Donde He Trabajado</h4>
+                            <p>1. Lil horse Inc. - Lead Designer 2. Digital Arkitechs - Consultor 3. Draketech - Lead
+                                UI/UX 4. G lab - Web Designer</p>
+                            <span class="note-date">Today</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="note-editor-container">
+                    <div class="note-editor-header">
+                        <span>Edited today at 2:30 PM</span>
+                    </div>
+                    <div class="note-editor-content" id="note-editor-content">
+                        <h1>Oferta de valor</h1>
+                        <h2>Inteligencia Artificial & Flujos de Trabajo Híbridos</h2>
+                        <ul>
+                            <li>Desarrollo de assets visuales con IA (ComfyUI, Midjourney)</li>
+                            <li>Optimización de flujos creativos con automatización</li>
+                            <li>Aceleración de producción de interfaces con IA</li>
+                            <li>Integración de modelos LLM en experiencias web</li>
+                            <li>Diseño assistivo: Prototipado acelerado 50% más rápido</li>
+                            <li>Reducción de costos de producción manteniendo calidad premium</li>
+                            <li>Prompt Engineering para assets web</li>
+                            <li>Optimización de workflows de diseño con IA</li>
+                        </ul>
+                        <h2>Animación & Interacción de Alto Nivel</h2>
+                        <ul>
+                            <li>Implementación de Three.js para experiencias inmersivas</li>
+                            <li>Microinteracciones con GSAP que aumentan engagement +35%</li>
+                            <li>Optimización de rendimiento (Lighthouse 90+)</li>
+                            <li>Transiciones de scroll con ScrollTrigger</li>
+                            <li>Performance-first: Carga sub-1s incluso con animaciones complejas</li>
+                        </ul>
+                        <h2>Tech Stack Especializado</h2>
+                        <p><strong>Frontend:</strong> Three.js, GSAP</p>
+                        <p><strong>CMS:</strong> WordPress, Elementor Pro, Shopify, framer</p>
+                        <p><strong>IA:</strong> ComfyUI, Claude Code, Flow</p>
+                        <p><strong>Diseño:</strong> Figma, Adobe Suite</p>
+                        <p><strong>Performance UX:</strong> attentioninsight</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Detail Window (Dynamic) -->
+        <div class="window project-detail" id="project-detail-window" style="left: 300px; top: 100px; display: none;">
+            <div class="resize-handle resize-nw" onmousedown="startResize(event, 'project-detail-window', 'nw')"></div>
+            <div class="resize-handle resize-n" onmousedown="startResize(event, 'project-detail-window', 'n')"></div>
+            <div class="resize-handle resize-ne" onmousedown="startResize(event, 'project-detail-window', 'ne')"></div>
+            <div class="resize-handle resize-w" onmousedown="startResize(event, 'project-detail-window', 'w')"></div>
+            <div class="resize-handle resize-e" onmousedown="startResize(event, 'project-detail-window', 'e')"></div>
+            <div class="resize-handle resize-sw" onmousedown="startResize(event, 'project-detail-window', 'sw')"></div>
+            <div class="resize-handle resize-s" onmousedown="startResize(event, 'project-detail-window', 's')"></div>
+            <div class="resize-handle resize-se" onmousedown="startResize(event, 'project-detail-window', 'se')"></div>
+            <div class="window-header" onmousedown="startDrag(event, 'project-detail-window')">
+                <div class="window-controls">
+                    <button class="control close" onclick="closeWindow('project-detail-window')"></button>
+                    <button class="control minimize" onclick="minimizeWindow('project-detail-window')"></button>
+                    <button class="control expand"></button>
+                </div>
+                <div class="window-title" id="project-detail-title">Project</div>
+            </div>
+            <div class="window-content">
+                <div class="project-detail-content" id="project-detail-body">
+                    <!-- Content loaded dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Dock -->
+        <div class="dock">
+            <div class="dock-container">
+                <div class="dock-item doc-about" onclick="openWindow('about')">
+                    <div class="dock-icon img-icon">
+                        <img src="img/profile img .webp" alt="About">
+                    </div>
+                    <div class="dock-tooltip">About</div>
+                </div>
+                <div class="dock-item doct-proyects" onclick="openWindow('projects')">
+                    <div class="dock-icon img-icon">
+                        <img src="icons/proyects.avif" alt="Projects">
+                    </div>
+                    <div class="dock-tooltip">Projects</div>
+                </div>
+                <div class="dock-item doc-notes" onclick="openWindow('notes')">
+                    <div class="dock-icon img-icon">
+                        <img src="icons/notes.svg" alt="Notes">
+                    </div>
+                    <div class="dock-tooltip">Notes</div>
+                </div>
+                <div class="dock-divider "></div>
+                <a href="https://www.linkedin.com/in/daniel-santiago-moyano-906148187/" target="_blank"
+                    class="dock-item">
+                    <div class="dock-icon img-icon doc-linkedin">
+                        <img src="icons/linkedin.svg" alt="LinkedIn">
+                    </div>
+                    <div class="dock-tooltip">LinkedIn</div>
+                </a>
+                <a href="https://wa.me/3202701278" class="dock-item">
+                    <div class="dock-icon img-icon doc-linkedin doc-whatsapp">
+                        <img src="icons/whatsapp-svgrepo-com.svg" alt="Contact">
+                    </div>
+                    <div class="dock-tooltip">Whatsapp</div>
+                </a>
+                <a href="mailto:dsantiagomoyano@gmail.com" class="dock-item">
+                    <div class="dock-icon img-icon doc-mail">
+                        <img src="icons/mail.webp" alt="Contact">
+                    </div>
+                    <div class="dock-tooltip">Correo</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Menu Bar -->
+        <div class="menu-bar">
+            <div class="menu-left">
+                <span class="apple-logo">&#63743;</span>
+                <span class="menu-item active">Finder</span>
+                <span class="menu-item">File</span>
+                <span class="menu-item">Edit</span>
+                <span class="menu-item">View</span>
+                <span class="menu-item">Window</span>
+                <span class="menu-item">Help</span>
+            </div>
+            <div class="menu-right">
+                <span class="menu-time" id="menu-time">9:41 AM</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

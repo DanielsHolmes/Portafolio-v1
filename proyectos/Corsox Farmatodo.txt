@@ -1,0 +1,17 @@
+Name: Corsox Farmatodo
+Date: 2025
+Services: 
+- SAS Design
+- UI Design
+- UX Design
+
+Tags: UX/UI Design,  SAS Design, Dashboard, Enterprise Software, Usability
+
+Resumen:
+Plataforma administrativa enterprise desarrollada por Corsox para la cadena farmacéutica Farmatodo. El proyecto se centró en la optimización de la interfaz para soportar operaciones de alta complejidad y gran volumen de datos.
+
+El Reto:
+El crecimiento acelerado del software generó una saturación de funcionalidades. La interfaz presentaba graves problemas de usabilidad, aumentando la carga cognitiva y dificultando que los usuarios operaran las herramientas críticas eficientemente.
+
+La Solución:
+Implementé una interfaz limpia enfocada en la claridad de intenciones. Organicé la jerarquía visual para que cada elemento comunique su función naturalmente, logrando que el usuario navegue de forma intuitiva y reduzca la fricción en sus tareas diarias.

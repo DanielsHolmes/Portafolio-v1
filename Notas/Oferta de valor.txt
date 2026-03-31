@@ -1,0 +1,28 @@
+title: Experiencias web de alto impacto
+
+🧠 Inteligencia Artificial & Flujos de Trabajo Híbridos
+
+• Desarrollo de assets visuales con IA (ComfyUI, Midjourney)
+• Optimización de flujos creativos con automatización
+• Aceleración de producción de interfaces con IA
+• Integración de modelos LLM en experiencias web
+• Diseño assistivo: Prototipado acelerado 50% más rápido
+• Reducción de costos de producción manteniendo calidad premium
+• Prompt Engineering para assets web
+• Optimización de workflows de diseño con IA
+
+🎨 Animación & Interacción de Alto Nivel
+
+• Implementación de Three.js para experiencias inmersivas
+• Microinteracciones con GSAP que aumentan engagement +35%
+• Optimización de rendimiento (Lighthouse 90+)
+• Transiciones de scroll con ScrollTrigger
+• Performance-first: Carga sub-1s incluso con animaciones complejas
+
+🛠️ Tech Stack Especializado
+
+Frontend: Three.js, GSAP, 
+CMS: WordPress, Elementor Pro, Shopify, framer
+IA: ComfyUI, Claude Code, Flow
+Diseño: Figma, Adobe Suite 
+Performance UX: attentioninsight

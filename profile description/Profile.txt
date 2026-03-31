@@ -1,0 +1,23 @@
+Nombre: Daniel Santiago Moyano
+
+Senior Frontend Designer | Product Designer | WordPress Architect |
+AI-Enhanced Web Developer | Three.js & GSAP Expert | ComfyUI & Workflow Designer |
+UX/UI Strategist | Creative Technical Developer
+
+description:
+Soy Daniel Santiago Moyano, un perfil Senior en Diseño y Desarrollo Web con más de 8 años transformando productos digitales (Websites, E-commerce, Apps y SaaS).
+Mi metodología une el diseño basado en datos y mapas de atención con una ejecución técnica robusta en WordPress y Shopify. 
+Potencio la eficiencia y la creatividad mediante IA Generativa: utilizo ComfyUI y Flow para assets visuales únicos y variantes de producto, y Claude Code para entregar prototipos funcionales en menos de 24 horas. 
+Domino el ecosistema Adobe y Figma, pero mi valor diferencial está en el Front-End avanzado: implemento Three.js y GSAP para crear animaciones y objetos 3D interactivos que no solo embellecen, sino que elevan la retención y el impacto de marca, asegurando que tu producto destaque en un mercado saturado."
+
+Stack & Herramientas:
+• Dev & CMS: WordPress, Shopify, Three.js, GSAP.
+• Design: Figma, Adobe Suite.
+• AI Workflow: ComfyUI, Flow, Claude Code.
+• Strategy: Data-driven Design, Attention Maps.
+
+Especialidad en:
+• Experiencias inmersivas 3D
+• Microinteracciones que mejoran UX
+• Workflows híbridos (IA + Diseño Tradicional)
+• Arquitectura de CMS escalable

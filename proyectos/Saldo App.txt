@@ -1,0 +1,17 @@
+Name: Saldo App
+Date: 2025 - Present
+Services: 
+- App Design
+- UI Design
+- UX Design
+
+Tags: UX/UI Design, Branding, Mobile App, Illustration
+
+Resumen:
+Saldo App es una plataforma móvil enfocada en el control integral de finanzas personales. Mi intervención se centró en el rediseño de la identidad visual y la experiencia de usuario para transformar una herramienta funcional en un producto con valor emocional.
+
+El Reto:
+El diseño original carecía de diferenciación, presentando una estética genérica común en el sector fintech. El desafío era inyectar personalidad y cercanía en un entorno usualmente frío, sin comprometer la usabilidad ni la confianza que requiere el manejo de dinero.
+
+La Solución:
+Desarrollé un sistema de diseño propietario basado en una mascota única que actúa como guía dentro de la interfaz. Esta estrategia humanizó la interacción y distinguió la app de la competencia, resultando en una experiencia más memorable y emocionalmente conectiva para el usuario.
