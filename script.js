@@ -17,6 +17,7 @@ let startTop = 0;
 // Project Data
 const projectData = {
     corsox: {
+        id: 'corsox',
         title: "Corsox Farmatodo",
         year: "2025",
         category: "UX/UI Design • SAS Design • Dashboard",
@@ -33,6 +34,7 @@ const projectData = {
         ]
     },
     saldo: {
+        id: 'saldo',
         title: "Saldo App",
         year: "2025",
         category: "UX/UI Design • Branding • Mobile App",
@@ -48,6 +50,7 @@ const projectData = {
         ]
     },
     dulcegracia: {
+        id: 'dulcegracia',
         title: "Dulce Gracia",
         year: "2025",
         category: "Branding • Visual Identity • Strategy",
@@ -63,6 +66,7 @@ const projectData = {
         ]
     },
     conalpe: {
+        id: 'conalpe',
         title: "Conalpe",
         year: "2024",
         category: "UX Research • Information Architecture • Web Design",
@@ -79,6 +83,13 @@ const projectData = {
         ]
     }
 };
+
+// Project order for navigation
+const projectOrder = ['corsox', 'saldo', 'dulcegracia', 'conalpe'];
+
+// Slider state
+let currentSliderIndex = 0;
+let currentProjectId = null;
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
@@ -409,22 +420,29 @@ function openProject(projectId) {
         // If it's a different project, just update the content (don't add to active set again)
     }
 
+    // Update current project tracking
+    currentProjectId = projectId;
+    currentSliderIndex = 0;
+
     if (windowEl && titleEl && bodyEl) {
         titleEl.textContent = project.title;
 
-        // Generate gallery HTML
-        const galleryHtml = project.images.map((img, index) =>
-            `<img src="${img}" alt="${project.title} ${index + 1}" class="gallery-img" onclick="openImageModal('${img}', '${projectId}')">`
-        ).join('');
+        // Generate slider HTML
+        const sliderHtml = generateSliderHtml(project.images, projectId);
 
         // Generate services tags
         const servicesHtml = project.services.map(service =>
             `<span class="service-tag">${service}</span>`
         ).join('');
 
+        // Get current project index for navigation
+        const currentIndex = projectOrder.indexOf(projectId);
+        const prevProject = currentIndex > 0 ? projectData[projectOrder[currentIndex - 1]] : null;
+        const nextProject = currentIndex < projectOrder.length - 1 ? projectData[projectOrder[currentIndex + 1]] : null;
+
         bodyEl.innerHTML = `
             <div class="project-gallery">
-                ${galleryHtml}
+                ${sliderHtml}
             </div>
             <div class="project-info">
                 <h3>${project.title}</h3>
@@ -451,7 +469,19 @@ function openProject(projectId) {
                     <span class="tags-label">Tags: </span>${project.tags}
                 </div>
             </div>
+            <div class="project-nav-controls">
+                <button class="project-nav-btn" onclick="navigateProject(-1)" ${!prevProject ? 'disabled' : ''}>
+                    <span class="arrow">&#8249;</span> ${prevProject ? prevProject.title : 'Proyecto anterior'}
+                </button>
+                <span class="project-counter">${currentIndex + 1} / ${projectOrder.length}</span>
+                <button class="project-nav-btn" onclick="navigateProject(1)" ${!nextProject ? 'disabled' : ''}>
+                    ${nextProject ? nextProject.title : 'Siguiente proyecto'} <span class="arrow">&#8250;</span>
+                </button>
+            </div>
         `;
+
+        // Initialize slider after DOM update
+        setTimeout(() => initSlider(), 0);
 
         windowEl.style.display = 'block';
         windowEl.classList.remove('closed', 'minimized');
@@ -469,6 +499,99 @@ function openProject(projectId) {
             activeWindows.add('project-detail-window');
         }
         updateDockIndicators();
+    }
+}
+
+// Generate Slider HTML
+function generateSliderHtml(images, projectId) {
+    const slidesHtml = images.map((img, index) =>
+        `<div class="slider-slide">
+            <img src="${img}" alt="Image ${index + 1}" onclick="openImageModal('${img}', '${projectId}')">
+        </div>`
+    ).join('');
+
+    const dotsHtml = images.map((_, index) =>
+        `<button class="slider-dot ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})"></button>`
+    ).join('');
+
+    return `
+        <div class="slider-container">
+            <div class="slider-track" id="slider-track">
+                ${slidesHtml}
+            </div>
+            <button class="slider-nav prev" onclick="moveSlider(-1)">&#8249;</button>
+            <button class="slider-nav next" onclick="moveSlider(1)">&#8250;</button>
+        </div>
+        <div class="slider-dots" id="slider-dots">
+            ${dotsHtml}
+        </div>
+    `;
+}
+
+// Initialize Slider
+function initSlider() {
+    const track = document.getElementById('slider-track');
+    const dots = document.querySelectorAll('.slider-dot');
+
+    if (track) {
+        track.style.transform = `translateX(-${currentSliderIndex * 100}%)`;
+    }
+
+    updateSliderDots();
+}
+
+// Move Slider
+function moveSlider(direction) {
+    const project = projectData[currentProjectId];
+    if (!project) return;
+
+    const totalSlides = project.images.length;
+    currentSliderIndex += direction;
+
+    if (currentSliderIndex < 0) currentSliderIndex = 0;
+    if (currentSliderIndex >= totalSlides) currentSliderIndex = totalSlides - 1;
+
+    const track = document.getElementById('slider-track');
+    if (track) {
+        track.style.transform = `translateX(-${currentSliderIndex * 100}%)`;
+    }
+
+    updateSliderDots();
+}
+
+// Go to specific slide
+function goToSlide(index) {
+    const project = projectData[currentProjectId];
+    if (!project) return;
+
+    currentSliderIndex = index;
+    if (currentSliderIndex < 0) currentSliderIndex = 0;
+    if (currentSliderIndex >= project.images.length) currentSliderIndex = project.images.length - 1;
+
+    const track = document.getElementById('slider-track');
+    if (track) {
+        track.style.transform = `translateX(-${currentSliderIndex * 100}%)`;
+    }
+
+    updateSliderDots();
+}
+
+// Update slider dots
+function updateSliderDots() {
+    const dots = document.querySelectorAll('.slider-dot');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSliderIndex);
+    });
+}
+
+// Navigate between projects
+function navigateProject(direction) {
+    const currentIndex = projectOrder.indexOf(currentProjectId);
+    const newIndex = currentIndex + direction;
+
+    if (newIndex >= 0 && newIndex < projectOrder.length) {
+        const newProjectId = projectOrder[newIndex];
+        openProject(newProjectId);
     }
 }
 
@@ -629,14 +752,6 @@ function filterProjects(category) {
         if (category === 'all') {
             item.style.display = 'flex';
             visibleCount++;
-        } else if (category === 'Enterprise') {
-            // Special case for Enterprise - check for Enterprise Software
-            if (tags && tags.includes('Enterprise Software')) {
-                item.style.display = 'flex';
-                visibleCount++;
-            } else {
-                item.style.display = 'none';
-            }
         } else {
             if (tags && tags.includes(category)) {
                 item.style.display = 'flex';
