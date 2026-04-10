@@ -188,7 +188,7 @@
                             data-tags="UX/UI Design,SAS Design,Dashboard,Enterprise Software,Usability"
                             onclick="openProject('corsox')">
                             <div class="project-thumb">
-                                <img src="Img Proyectos/Corsox/Corsox Gallery 01.webp" alt="Corsox Farmatodo">
+                                <img src="Img Proyectos/Corsox/Corsox Gallery Banner.png" alt="Corsox Farmatodo">
                             </div>
                             <div class="project-info-row">
                                 <span class="project-name">Corsox Farmatodo</span>
@@ -199,7 +199,7 @@
                         <div class="project-item" data-tags="UX/UI Design,Branding,Mobile App,Illustration"
                             onclick="openProject('saldo')">
                             <div class="project-thumb">
-                                <img src="Img Proyectos/Saldo/Saldo gallery 01.webp" alt="Saldo App">
+                                <img src="Img Proyectos/Saldo/Saldo gallery Banner.png" alt="Saldo App">
                             </div>
                             <div class="project-info-row">
                                 <span class="project-name">Saldo App</span>
@@ -210,7 +210,7 @@
                         <div class="project-item" data-tags="Branding,Visual Identity,Illustration,Strategy"
                             onclick="openProject('dulcegracia')">
                             <div class="project-thumb">
-                                <img src="Img Proyectos/Dulce Gracia/Dulce Gracia Gallery 01.webp" alt="Dulce Gracia">
+                                <img src="Img Proyectos/Dulce Gracia/Dulce Gracia Banner.png" alt="Dulce Gracia">
                             </div>
                             <div class="project-info-row">
                                 <span class="project-name">Dulce Gracia</span>
@@ -221,13 +221,24 @@
                         <div class="project-item" data-tags="UX Research,Information Architecture,Web Design,Usability"
                             onclick="openProject('conalpe')">
                             <div class="project-thumb">
-                                <img src="Img Proyectos/Conalpe/Conalpe Gallery 01.webp" alt="Conalpe">
+                                <img src="Img Proyectos/Conalpe/Conalpe Gallery Banner.png" alt="Conalpe">
                             </div>
                             <div class="project-info-row">
                                 <span class="project-name">Conalpe</span>
                                 <span class="project-type web">Web</span>
                             </div>
                             <span class="project-date">2024</span>
+                        </div>
+                        <div class="project-item" data-tags="UX/UI Design,SAS Design,Dashboard,Enterprise Software,Usability"
+                            onclick="openProject('habitta')">
+                            <div class="project-thumb">
+                                <img src="Img Proyectos/habitta/habitta Banner.png" alt="Habitta">
+                            </div>
+                            <div class="project-info-row">
+                                <span class="project-name">Habitta</span>
+                                <span class="project-type dashboard">Dashboard</span>
+                            </div>
+                            <span class="project-date">2025</span>
                         </div>
                     </div>
                     <div class="no-projects" id="no-projects" style="display: none;">
@@ -324,13 +335,26 @@
             <div class="resize-handle resize-sw" onmousedown="startResize(event, 'project-detail-window', 'sw')"></div>
             <div class="resize-handle resize-s" onmousedown="startResize(event, 'project-detail-window', 's')"></div>
             <div class="resize-handle resize-se" onmousedown="startResize(event, 'project-detail-window', 'se')"></div>
-            <div class="window-header" onmousedown="startDrag(event, 'project-detail-window')">
+            <div class="window-header project-header" onmousedown="startDrag(event, 'project-detail-window')">
                 <div class="window-controls">
                     <button class="control close" onclick="closeWindow('project-detail-window')"></button>
                     <button class="control minimize" onclick="minimizeWindow('project-detail-window')"></button>
                     <button class="control expand"></button>
                 </div>
-                <div class="window-title" id="project-detail-title">Project</div>
+                <div class="project-nav-header">
+                    <button class="nav-arrow nav-prev" id="nav-prev-btn" onclick="navigateProject(-1)" title="Proyecto anterior">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="window-title" id="project-detail-title">Project</div>
+                    <button class="nav-arrow nav-next" id="nav-next-btn" onclick="navigateProject(1)" title="Siguiente proyecto">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="project-counter-header" id="project-counter-header">1 / 5</div>
             </div>
             <div class="window-content">
                 <div class="project-detail-content" id="project-detail-body">

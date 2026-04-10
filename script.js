@@ -26,11 +26,11 @@ const projectData = {
         description: "Plataforma administrativa enterprise desarrollada por Corsox para la cadena farmacéutica Farmatodo. El proyecto se centró en la optimización de la interfaz para soportar operaciones de alta complejidad y gran volumen de datos.",
         reto: "El crecimiento acelerado del software generó una saturación de funcionalidades. La interfaz presentaba graves problemas de usabilidad, aumentando la carga cognitiva y dificultando que los usuarios operaran las herramientas críticas eficientemente.",
         solucion: "Implementé una interfaz limpia enfocada en la claridad de intenciones. Organicé la jerarquía visual para que cada elemento comunique su función naturalmente, logrando que el usuario navegue de forma intuitiva y reduzca la fricción en sus tareas diarias.",
+        banner: "Img Proyectos/Corsox/Corsox Gallery Banner.png",
         images: [
-            "Img Proyectos/Corsox/Corsox Gallery 01.webp",
-            "Img Proyectos/Corsox/Corsox Gallery 02.webp",
-            "Img Proyectos/Corsox/Corsox Gallery 03.webp",
-            "Img Proyectos/Corsox/Corsox Gallery 04.webp"
+            "Img Proyectos/Corsox/Corsox gallery/01.png",
+            "Img Proyectos/Corsox/Corsox gallery/02.png",
+            "Img Proyectos/Corsox/Corsox gallery/03.png"
         ]
     },
     saldo: {
@@ -43,10 +43,12 @@ const projectData = {
         description: "Saldo App es una plataforma móvil enfocada en el control integral de finanzas personales. Mi intervención se centró en el rediseño de la identidad visual y la experiencia de usuario para transformar una herramienta funcional en un producto con valor emocional.",
         reto: "El diseño original carecía de diferenciación, presentando una estética genérica común en el sector fintech. El desafío era inyectar personalidad y cercanía en un entorno usualmente frío, sin comprometer la usabilidad ni la confianza que requiere el manejo de dinero.",
         solucion: "Desarrollé un sistema de diseño propietario basado en una mascota única que actúa como guía dentro de la interfaz. Esta estrategia humanizó la interacción y distinguió la app de la competencia, resultando en una experiencia más memorable y emocionalmente conectiva para el usuario.",
+        banner: "Img Proyectos/Saldo/Saldo gallery Banner.png",
         images: [
-            "Img Proyectos/Saldo/Saldo gallery 01.webp",
-            "Img Proyectos/Saldo/Saldo gallery 02.webp",
-            "Img Proyectos/Saldo/Saldo gallery 03.webp"
+            "Img Proyectos/Saldo/Saldo gallery/01.png",
+            "Img Proyectos/Saldo/Saldo gallery/02.png",
+            "Img Proyectos/Saldo/Saldo gallery/03.png",
+            "Img Proyectos/Saldo/Saldo gallery/04.png"
         ]
     },
     dulcegracia: {
@@ -59,10 +61,12 @@ const projectData = {
         description: "Desarrollo de identidad visual para Dulce Gracia, un servicio de comida a domicilio que opera exclusivamente bajo modelo delivery. El proyecto abarcó la creación de un sistema de marca capaz de transmitir confianza y cercanía sin contar con presencia física.",
         reto: "El principal obstáculo era generar conexión emocional en un modelo sin tiendas físicas, donde la competencia suele percibirse como impersonal. Era necesario diferenciar la marca en un mercado saturado mediante atributos humanos que suplieran la falta de un espacio tangible.",
         solucion: "Diseñé una identidad centrada en una mascota protagonista que personifica los valores de la marca. Este activo funciona como el rostro humano del servicio, facilitando el reconocimiento inmediato y estableciendo un vínculo cercano con el cliente desde el primer punto de contacto digital.",
+        banner: "Img Proyectos/Dulce Gracia/Dulce Gracia Banner.png",
         images: [
-            "Img Proyectos/Dulce Gracia/Dulce Gracia Gallery 01.webp",
-            "Img Proyectos/Dulce Gracia/Dulce Gracia Gallery 02.webp",
-            "Img Proyectos/Dulce Gracia/Dulce Gracia Gallery 03.webp"
+            "Img Proyectos/Dulce Gracia/Dulce Gracia gallery/01.png",
+            "Img Proyectos/Dulce Gracia/Dulce Gracia gallery/02.png",
+            "Img Proyectos/Dulce Gracia/Dulce Gracia gallery/03.png",
+            "Img Proyectos/Dulce Gracia/Dulce Gracia gallery/04.png"
         ]
     },
     conalpe: {
@@ -75,17 +79,42 @@ const projectData = {
         description: "Rediseño integral del portal web institucional de Conalpe, una entidad de alcance nacional en Colombia. El objetivo fue optimizar la gestión de su amplio catálogo de servicios e información para mejorar la accesibilidad pública.",
         reto: "La saturación de contenido generaba una arquitectura de información compleja y poco intuitiva. Los usuarios se perdían fácilmente en la navegación, lo que dificultaba el acceso a los servicios clave y reducía la eficacia del portal.",
         solucion: "Lideré una investigación UX mediante mapas de usuario y grabaciones de sesiones reales para identificar puntos de fricción. Definí una nueva jerarquía visual y una estética limpia, decidiendo estratégicamente qué elementos rediseñar desde cero y cuáles actualizar para garantizar una navegación orgánica y reconocible.",
+        banner: "Img Proyectos/Conalpe/Conalpe Gallery Banner.png",
         images: [
-            "Img Proyectos/Conalpe/Conalpe Gallery 01.webp",
-            "Img Proyectos/Conalpe/Conalpe Gallery 02.webp",
-            "Img Proyectos/Conalpe/Conalpe Gallery 03.webp",
-            "Img Proyectos/Conalpe/Conalpe Gallery 04.webp"
+            "Img Proyectos/Conalpe/Conalpe gallery/01.png",
+            "Img Proyectos/Conalpe/Conalpe gallery/02.png",
+            "Img Proyectos/Conalpe/Conalpe gallery/03.png",
+            "Img Proyectos/Conalpe/Conalpe gallery/04.png",
+            "Img Proyectos/Conalpe/Conalpe gallery/05.png"
+        ]
+    },
+    habitta: {
+        id: 'habitta',
+        title: "Habitta",
+        year: "2025",
+        category: "UX/UI Design • SAS Design • Dashboard • Enterprise Software",
+        services: ["SAS Design", "UX Design", "UI Design", "Design System"],
+        tags: "UX/UI Design, SAS Design, Dashboard, Enterprise Software, Usability, Property Management",
+        description: "Rediseño integral de la plataforma de administración vertical de propiedades de Habitta. El sistema backend gestionaba eficientemente propiedades complejas, pero la interfaz estaba sobrecargada debido a la constante incorporación de nuevas funciones.",
+        reto: "Los usuarios sufrían sobrecarga cognitiva, los administradores tenían dificultades con la navegación entre roles y los equipos de ventas enfrentaban objeciones recurrentes por un diseño 'amateur'. Un intento previo de rediseño basado en IA generó una interfaz genérica que no resolvió la falta de jerarquía, contexto basado en roles y coherencia con la marca.",
+        solucion: "Asumí responsabilidad integral de UX/UI desde auditoría hasta entrega final. Organicé la jerarquía visual para roles específicos, eliminé fricciones de navegación y establecí un sistema de diseño coherente. El resultado fue ciclos de venta más rápidos, mayor adopción y retención de usuarios, y un reposicionamiento del producto como estándar de calidad en su nicho.",
+        impacto: [
+            "Ciclos de venta más rápidos: reducción de objeciones en demostraciones",
+            "Mayor adopción y retención: incorporación más rápida de nuevos usuarios",
+            "Menos tickets de soporte por confusión en navegación",
+            "Reposicionamiento en el mercado: de competir por funciones a estándar de calidad"
+        ],
+        banner: "Img Proyectos/habitta/habitta Banner.png",
+        images: [
+            "Img Proyectos/habitta/habitta gallery/01.png",
+            "Img Proyectos/habitta/habitta gallery/02.png",
+            "Img Proyectos/habitta/habitta gallery/03.png"
         ]
     }
 };
 
 // Project order for navigation
-const projectOrder = ['corsox', 'saldo', 'dulcegracia', 'conalpe'];
+const projectOrder = ['corsox', 'saldo', 'dulcegracia', 'conalpe', 'habitta'];
 
 // Slider state
 let currentSliderIndex = 0;
@@ -440,10 +469,23 @@ function openProject(projectId) {
         const prevProject = currentIndex > 0 ? projectData[projectOrder[currentIndex - 1]] : null;
         const nextProject = currentIndex < projectOrder.length - 1 ? projectData[projectOrder[currentIndex + 1]] : null;
 
-        bodyEl.innerHTML = `
-            <div class="project-gallery">
-                ${sliderHtml}
+        // Generate impact HTML for projects that have it
+        const impactHtml = project.impact ? `
+            <div class="project-section impact-section">
+                <h4>Impacto en el negocio</h4>
+                <ul class="impact-list">
+                    ${project.impact.map(item => `<li>${item}</li>`).join('')}
+                </ul>
             </div>
+        ` : '';
+
+        bodyEl.innerHTML = `
+            <!-- Banner Image -->
+            <div class="project-banner">
+                <img src="${project.banner}" alt="${project.title} Banner" class="banner-img" onclick="openImageModal('${project.banner}', '${projectId}')">
+            </div>
+
+            <!-- Project Info -->
             <div class="project-info">
                 <h3>${project.title}</h3>
                 <div class="project-meta">
@@ -465,18 +507,15 @@ function openProject(projectId) {
                     <h4>La Solución</h4>
                     <p class="project-description">${project.solucion}</p>
                 </div>
+                ${impactHtml}
                 <div class="project-tags">
                     <span class="tags-label">Tags: </span>${project.tags}
                 </div>
             </div>
-            <div class="project-nav-controls">
-                <button class="project-nav-btn" onclick="navigateProject(-1)" ${!prevProject ? 'disabled' : ''}>
-                    <span class="arrow">&#8249;</span> ${prevProject ? prevProject.title : 'Proyecto anterior'}
-                </button>
-                <span class="project-counter">${currentIndex + 1} / ${projectOrder.length}</span>
-                <button class="project-nav-btn" onclick="navigateProject(1)" ${!nextProject ? 'disabled' : ''}>
-                    ${nextProject ? nextProject.title : 'Siguiente proyecto'} <span class="arrow">&#8250;</span>
-                </button>
+
+            <!-- Gallery Slider -->
+            <div class="project-gallery">
+                ${sliderHtml}
             </div>
         `;
 
@@ -494,11 +533,37 @@ function openProject(projectId) {
 
         bringToFront(windowEl);
 
+        // Update header navigation
+        updateHeaderNavigation(currentIndex);
+
         // Only add to active set if it wasn't already open
         if (!isProjectWindowOpen) {
             activeWindows.add('project-detail-window');
         }
         updateDockIndicators();
+    }
+}
+
+// Update header navigation state
+function updateHeaderNavigation(currentIndex) {
+    const prevBtn = document.getElementById('nav-prev-btn');
+    const nextBtn = document.getElementById('nav-next-btn');
+    const counterEl = document.getElementById('project-counter-header');
+
+    if (prevBtn) {
+        prevBtn.disabled = currentIndex === 0;
+        prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '0.6';
+        prevBtn.style.cursor = currentIndex === 0 ? 'not-allowed' : 'pointer';
+    }
+
+    if (nextBtn) {
+        nextBtn.disabled = currentIndex === projectOrder.length - 1;
+        nextBtn.style.opacity = currentIndex === projectOrder.length - 1 ? '0.3' : '0.6';
+        nextBtn.style.cursor = currentIndex === projectOrder.length - 1 ? 'not-allowed' : 'pointer';
+    }
+
+    if (counterEl) {
+        counterEl.textContent = `${currentIndex + 1} / ${projectOrder.length}`;
     }
 }
 

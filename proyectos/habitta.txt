@@ -1,0 +1,14 @@
+El problema
+El sistema backend de Habitta gestionaba a la perfección la administración vertical de propiedades complejas, pero la interfaz de usuario estaba sobrecargada debido a la constante incorporación de nuevas funciones. Los usuarios sufrían sobrecarga cognitiva, los administradores tenían dificultades con la navegación entre roles y los equipos de ventas se enfrentaban a objeciones recurrentes por un diseño "amateur". Un intento previo de rediseño basado en IA generó una interfaz genérica que no resolvió el problema de raíz: la falta de jerarquía, contexto basado en roles y coherencia con la marca. El producto era técnicamente sólido, pero se percibía como de gama baja.
+
+Mi rol y responsabilidad
+Responsabilidad integral de UX/UI: auditoría → estrategia → flujos → wireframes → alta fidelidad → sistema de diseño → entrega
+Colaboré con los equipos de producto, ingeniería y ventas para alinear las decisiones de UX con los objetivos de conversión y adopción.
+
+Impacto en el negocio y la experiencia de usuario
+- Ciclos de venta más rápidos: Se redujeron las objeciones relacionadas con la interfaz en las demostraciones; los clientes potenciales se centraron en el retorno de la inversión, no en "arreglar" la interfaz de usuario.
+- Mayor adopción y retención: Los nuevos usuarios completaron la incorporación más rápido. Menos tickets de soporte por confusión en la navegación
+- Reposicionamiento en el mercado: El producto pasó de competir por cantidad de funciones a ser reconocido como un estándar de calidad en su nicho
+
+Conclusión clave
+Los grandes productos no fracasan por un mal código, sino por una mala percepción. Este rediseño demostró que la UX estratégica no se trata de añadir más, sino de revelar lo que ya es valioso. Al alinear la claridad de la interfaz con los roles de usuario, el contexto del dispositivo y la intención de la marca, convertimos una herramienta funcional en un diferenciador de mercado. El diseño no inventó valor; lo hizo visible, usable y creíble.
