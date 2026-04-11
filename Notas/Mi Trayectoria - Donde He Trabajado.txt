@@ -1,13 +1,32 @@
-Title: Mi Trayectoria - Donde He Trabajado
-1. Lil horse Inc.
-Cargo: Lead Designer - Experiencia Digital
-Período: 2024 - Actualmente
-2. Digital Arkitechs
-Cargo: Consultor Estratégico en Diseño Digital
-Período: 2024
-3. Draketech
-Cargo: Lead Designer UI / UX
-Período: 2022 - 2023
-4. G lab
-Cargo: Designer Web
-Período: 2018 - 2022
+Title: Mi Trayectoria
+
+
+Lil Horse Inc. | Lead Designer – Experiencia Digital
+2024 – Actualmente
+Estrategia de producto • Sistemas de diseño • Percepción de marca
+
+* Lideré la arquitectura de experiencia para elevar el valor percibido de productos digitales, alineando UI, negocio y contexto de usuario.
+* Defino y comunico el rol del diseño como palanca de crecimiento, colaborando con stakeholders para alinear UI, contexto de usuario y métricas de impacto.
+
+
+Digital Arkitechs | Consultor Estratégico en Diseño Digital
+2024
+Auditoría de valor • Prototipado ágil • Posicionamiento
+
+* Diagnosticé brechas entre calidad técnica y percepción de usuario, entregando intervenciones de diseño accionables que reposicionaron productos en etapas críticas.
+* Validé hipótesis de percepción mediante prototipos funcionales y testing A/B, reduciendo riesgo de inversión y acelerando decisiones de producto.
+
+
+Draketech | Lead Designer UI / UX
+2022 – 2023
+SaaS B2B • Multi-role systems • Design Ops
+
+* Rediseñé plataformas de alta complejidad funcional, transformando interfaces saturadas en experiencias claras y orientadas a roles.
+
+
+G Lab | Designer Web
+2018 – 2022
+Fundamentos • Ejecución • Evolución estratégica
+
+* Diseñé interfaces web para sectores regulados, equilibrando usabilidad, estética y objetivos de negocio en proyectos end-to-end.
+* Evolucioné de ejecutor a socio estratégico: introduje research ligero y medición de impacto post-lanzamiento, definiendo mi enfoque en diseño con resultados.

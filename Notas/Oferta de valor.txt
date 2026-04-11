@@ -1,28 +1,39 @@
-title: Experiencias web de alto impacto
 
-🧠 Inteligencia Artificial & Flujos de Trabajo Híbridos
 
-• Desarrollo de assets visuales con IA (ComfyUI, Midjourney)
-• Optimización de flujos creativos con automatización
-• Aceleración de producción de interfaces con IA
-• Integración de modelos LLM en experiencias web
-• Diseño assistivo: Prototipado acelerado 50% más rápido
-• Reducción de costos de producción manteniendo calidad premium
-• Prompt Engineering para assets web
-• Optimización de workflows de diseño con IA
 
-🎨 Animación & Interacción de Alto Nivel
+Title: Experiencias Web de Alto Impacto
+Sub title: Inteligencia Artificial & Flujos de Trabajo
 
-• Implementación de Three.js para experiencias inmersivas
-• Microinteracciones con GSAP que aumentan engagement +35%
-• Optimización de rendimiento (Lighthouse 90+)
-• Transiciones de scroll con ScrollTrigger
-• Performance-first: Carga sub-1s incluso con animaciones complejas
 
-🛠️ Tech Stack Especializado
+Assets con IA y Prompt Engineering
+Generación de activos de alta fidelidad mediante pipelines especializados. ComfyUI, Midjourney y modelos LLM integrados en workflows de producción optimizados. Reducción de hasta el 50% en tiempos sin comprometer calidad.
 
-Frontend: Three.js, GSAP, 
-CMS: WordPress, Elementor Pro, Shopify, framer
-IA: ComfyUI, Claude Code, Flow
-Diseño: Figma, Adobe Suite 
-Performance UX: attentioninsight
+
+Ciclo de Diseño asistido por IA
+La inteligencia artificial se integra en cada fase del desarrollo. Textos, imágenes y video se refinan con ayuda del modelo, permitiendo exploraciones conceptuales más amplias y entregas de producto más rápidas. Cada iteración se beneficia de feedback inmediato y precisión técnica.
+
+
+Automatización de Flujos
+Sistemas que se adaptan a tu proceso. Menor consumo de recursos, mayor retorno de valor en cada entrega. La tecnología trabaja en segundo plano mientras tu creatividad fluye.
+
+Title: Animación & Interacción de Alto Nivel
+
+Entornos 3D Inmersivos
+Three.js para experiencias que se sienten tangibles. Renderizado en tiempo real que respeta los límites del dispositivo.
+
+
+
+Microinteracciones Conscientes
+GSAP optimizado para feedback visual preciso. Cada gesto responde con intención y elegancia.
+
+
+Rendimiento Lighthouse 90+
+Métricas de carga sub-1s incluso con WebGL activo. La fluidez que el usuario final percibe como premium.
+
+
+Lo que percibe el usuario
+
+Qué construye	Qué se siente
+Precisión técnica	Calidad inmediata
+Innovación silenciosa	Valor elevado
+Fluidez inquebrantable	Experiencia superior

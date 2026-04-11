@@ -4,6 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Daniel Santiago Moyano - Senior Frontend Designer & Creative Technical Developer. Experiencias web inmersivas con IA, Three.js y GSAP.">
+    <meta name="theme-color" content="#667eea">
+    <meta name="author" content="Daniel Santiago Moyano">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:title" content="Daniel Santiago Moyano - Portfolio 2025">
+    <meta property="og:description" content="Senior Frontend Designer specializing in immersive web experiences, AI workflows, and interactive 3D design.">
+    <meta property="og:image" content="img/Favicon.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdomain.com/">
+    <meta property="twitter:title" content="Daniel Santiago Moyano - Portfolio 2025">
+    <meta property="twitter:description" content="Senior Frontend Designer specializing in immersive web experiences, AI workflows, and interactive 3D design.">
+    <meta property="twitter:image" content="img/Favicon.png">
+    
     <title>OS Web Experience</title>
     <link rel="icon" type="image/png" href="img/Favicon.png">
     <link rel="stylesheet" href="styles.css">
@@ -20,19 +38,19 @@
 
         <!-- Desktop Icons -->
         <div class="desktop-icons">
-            <div class="desktop-icon" onclick="openWindow('about')">
+            <div class="desktop-icon" onclick="PortfolioApp.openWindow('about')">
                 <div class="icon-content img-icon">
                     <img src="img/profile img .webp" alt="About">
                 </div>
                 <span>About Me</span>
             </div>
-            <div class="desktop-icon" onclick="openWindow('projects')">
+            <div class="desktop-icon" onclick="PortfolioApp.openWindow('projects')">
                 <div class="icon-content img-icon">
                     <img src="icons/proyects.avif" alt="Projects">
                 </div>
                 <span>Projects</span>
             </div>
-            <div class="desktop-icon" onclick="openWindow('notes')">
+            <div class="desktop-icon" onclick="PortfolioApp.openWindow('notes')">
                 <div class="icon-content img-icon">
                     <img src="icons/notes.svg" alt="Notes">
                 </div>
@@ -41,84 +59,118 @@
         </div>
 
         <!-- About Me Window -->
-        <div class="window active" id="about-window" style="left: 100px; top: 80px; width: 500px; z-index: 101;">
-            <div class="resize-handle resize-nw" onmousedown="startResize(event, 'about-window', 'nw')"></div>
-            <div class="resize-handle resize-n" onmousedown="startResize(event, 'about-window', 'n')"></div>
-            <div class="resize-handle resize-ne" onmousedown="startResize(event, 'about-window', 'ne')"></div>
-            <div class="resize-handle resize-w" onmousedown="startResize(event, 'about-window', 'w')"></div>
-            <div class="resize-handle resize-e" onmousedown="startResize(event, 'about-window', 'e')"></div>
-            <div class="resize-handle resize-sw" onmousedown="startResize(event, 'about-window', 'sw')"></div>
-            <div class="resize-handle resize-s" onmousedown="startResize(event, 'about-window', 's')"></div>
-            <div class="resize-handle resize-se" onmousedown="startResize(event, 'about-window', 'se')"></div>
-            <div class="window-header" onmousedown="startDrag(event, 'about-window')">
+        <div class="window window-position-about" id="about-window" role="dialog" aria-label="About Me Window">
+            <div class="resize-handle resize-nw" onmousedown="PortfolioApp.startResize(event, 'about-window', 'nw')"></div>
+            <div class="resize-handle resize-n" onmousedown="PortfolioApp.startResize(event, 'about-window', 'n')"></div>
+            <div class="resize-handle resize-ne" onmousedown="PortfolioApp.startResize(event, 'about-window', 'ne')"></div>
+            <div class="resize-handle resize-w" onmousedown="PortfolioApp.startResize(event, 'about-window', 'w')"></div>
+            <div class="resize-handle resize-e" onmousedown="PortfolioApp.startResize(event, 'about-window', 'e')"></div>
+            <div class="resize-handle resize-sw" onmousedown="PortfolioApp.startResize(event, 'about-window', 'sw')"></div>
+            <div class="resize-handle resize-s" onmousedown="PortfolioApp.startResize(event, 'about-window', 's')"></div>
+            <div class="resize-handle resize-se" onmousedown="PortfolioApp.startResize(event, 'about-window', 'se')"></div>
+            <div class="window-header" onmousedown="PortfolioApp.startDrag(event, 'about-window')">
                 <div class="window-controls">
-                    <button class="control close" onclick="closeWindow('about-window')"></button>
-                    <button class="control minimize" onclick="minimizeWindow('about-window')"></button>
-                    <button class="control expand"></button>
+                    <button class="control close" onclick="PortfolioApp.closeWindow('about-window')"></button>
+                    <button class="control minimize" onclick="PortfolioApp.minimizeWindow('about-window')"></button>
+                    <button class="control expand" onclick="PortfolioApp.maximizeWindow('about-window')"></button>
                 </div>
                 <div class="window-title">About Me</div>
             </div>
-            <div class="window-content">
+            <div class="window-content about-content">
                 <div class="about-container">
-                    <div class="profile-section">
-                        <div class="avatar">
-                            <img src="img/profile img .webp" alt="Daniel Santiago Moyano" class="avatar-img">
+                    <!-- Hero Section -->
+                    <div class="about-hero-section">
+                        <div class="about-avatar-wrapper">
+                            <div class="about-avatar">
+                                <img src="img/profile img .webp" alt="Daniel Santiago Moyano" class="avatar-img">
+                            </div>
+                            <div class="about-status-dot"></div>
                         </div>
-                        <div class="profile-info">
+                        <div class="about-profile-info">
                             <h2>Daniel Santiago Moyano</h2>
-                            <p class="subtitle">Senior Frontend Designer | Product Designer | WordPress Architect |
-                                AI-Enhanced Web Developer | Three.js & GSAP Expert | ComfyUI & Workflow Designer | UX/UI
-                                Strategist | Creative Technical Developer</p>
+                            <p class="about-tagline">Senior Frontend Designer & Creative Technical Developer</p>
+                            <div class="about-location">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                                <span>Disponible para proyectos globales</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="info-grid">
-                        <div class="info-card">
-                            <span class="label">Experience</span>
-                            <span class="value">8+ Years</span>
+
+                    <!-- Stats Grid -->
+                    <div class="about-stats-grid">
+                        <div class="about-stat-card">
+                            <div class="about-stat-number">8+</div>
+                            <div class="about-stat-label">Años de experiencia</div>
                         </div>
-                        <div class="info-card">
-                            <span class="label">Clientes en</span>
-                            <span class="value countries">Canadá, Australia, Colombia</span>
+                        <div class="about-stat-card">
+                            <div class="about-stat-number">3</div>
+                            <div class="about-stat-label">Países con clientes</div>
                         </div>
-                        <div class="info-card">
-                            <span class="label">Focus</span>
-                            <span class="value">3D & AI</span>
+                        <div class="about-stat-card">
+                            <div class="about-stat-number">50+</div>
+                            <div class="about-stat-label">Proyectos entregados</div>
                         </div>
                     </div>
-                    <div class="bio-section">
-                        <p class="bio">
-                            Soy Daniel Santiago Moyano, un perfil Senior en Diseño y Desarrollo Web con más de 8 años
-                            transformando productos digitales (Websites, E-commerce, Apps y SaaS).
+
+                    <!-- Bio Section -->
+                    <div class="about-bio-card">
+                        <p class="about-bio-text">
+                            Soy Daniel Santiago Moyano, un perfil Senior en Diseño y Desarrollo Web con más de 8 años transformando productos digitales (Websites, E-commerce, Apps y SaaS).
                         </p>
-                        <p class="bio">
-                            Mi metodología une el diseño basado en datos y mapas de atención con una ejecución técnica
-                            robusta en WordPress y Shopify. Potencio la eficiencia y la creatividad mediante IA
-                            Generativa: utilizo ComfyUI y Flow para assets visuales únicos y variantes de producto, y
-                            Claude Code para entregar prototipos funcionales en menos de 24 horas.
+                        <p class="about-bio-text">
+                            Mi metodología une el diseño basado en datos y mapas de atención con una ejecución técnica robusta en WordPress y Shopify. Potencio la eficiencia y la creatividad mediante IA Generativa: utilizo ComfyUI y Flow para assets visuales únicos, y Claude Code para entregar prototipos funcionales en menos de 24 horas.
                         </p>
-                        <p class="bio">
-                            Domino el ecosistema Adobe y Figma, pero mi valor diferencial está en el Front-End avanzado:
-                            implemento Three.js y GSAP para crear animaciones y objetos 3D interactivos que no solo
-                            embellecen, sino que elevan la retención y el impacto de marca, asegurando que tu producto
-                            destaque en un mercado saturado.
+                        <p class="about-bio-text">
+                            Domino el ecosistema Adobe y Figma, pero mi valor diferencial está en el Front-End avanzado: implemento Three.js y GSAP para crear animaciones y objetos 3D interactivos que elevan la retención y el impacto de marca.
                         </p>
-                        <div class="stack-section">
-                            <h4>Stack & Herramientas:</h4>
-                            <ul class="stack-list">
-                                <li><strong>Dev & CMS:</strong> WordPress, Shopify, Three.js, GSAP</li>
-                                <li><strong>Design:</strong> Figma, Adobe Suite</li>
-                                <li><strong>AI Workflow:</strong> ComfyUI, Flow, Claude Code</li>
-                                <li><strong>Strategy:</strong> Data-driven Design, Attention Maps</li>
-                            </ul>
+                    </div>
+
+                    <!-- Stack & Tools -->
+                    <div class="about-stack-section">
+                        <h4 class="about-section-title">Stack & Herramientas</h4>
+                        <div class="about-stack-grid">
+                            <div class="about-stack-item">
+                                <span class="about-stack-icon">⚡</span>
+                                <div>
+                                    <strong>Dev & CMS</strong>
+                                    <span>WordPress, Shopify, Three.js, GSAP</span>
+                                </div>
+                            </div>
+                            <div class="about-stack-item">
+                                <span class="about-stack-icon">🎨</span>
+                                <div>
+                                    <strong>Design</strong>
+                                    <span>Figma, Adobe Suite</span>
+                                </div>
+                            </div>
+                            <div class="about-stack-item">
+                                <span class="about-stack-icon">🤖</span>
+                                <div>
+                                    <strong>AI Workflow</strong>
+                                    <span>ComfyUI, Flow, Claude Code</span>
+                                </div>
+                            </div>
+                            <div class="about-stack-item">
+                                <span class="about-stack-icon">📊</span>
+                                <div>
+                                    <strong>Strategy</strong>
+                                    <span>Data-driven Design, Attention Maps</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="specialty-section">
-                            <h4>Especialidad en:</h4>
-                            <ul class="specialty-list">
-                                <li>Experiencias inmersivas 3D</li>
-                                <li>Microinteracciones que mejoran UX</li>
-                                <li>Workflows híbridos (IA + Diseño Tradicional)</li>
-                                <li>Arquitectura de CMS escalable</li>
-                            </ul>
+                    </div>
+
+                    <!-- Specialties -->
+                    <div class="about-specialties-section">
+                        <h4 class="about-section-title">Especialidad en</h4>
+                        <div class="about-specialties-grid">
+                            <div class="about-specialty-tag">Experiencias inmersivas 3D</div>
+                            <div class="about-specialty-tag">Microinteracciones que mejoran UX</div>
+                            <div class="about-specialty-tag">Workflows híbridos (IA + Diseño)</div>
+                            <div class="about-specialty-tag">Arquitectura de CMS escalable</div>
                         </div>
                     </div>
                 </div>
@@ -126,21 +178,20 @@
         </div>
 
         <!-- Projects Window (Finder Style) -->
-        <div class="window finder-style" id="projects-window"
-            style="left: 400px; top: 60px; width: 600px; height: 450px; z-index: 100;">
-            <div class="resize-handle resize-nw" onmousedown="startResize(event, 'projects-window', 'nw')"></div>
-            <div class="resize-handle resize-n" onmousedown="startResize(event, 'projects-window', 'n')"></div>
-            <div class="resize-handle resize-ne" onmousedown="startResize(event, 'projects-window', 'ne')"></div>
-            <div class="resize-handle resize-w" onmousedown="startResize(event, 'projects-window', 'w')"></div>
-            <div class="resize-handle resize-e" onmousedown="startResize(event, 'projects-window', 'e')"></div>
-            <div class="resize-handle resize-sw" onmousedown="startResize(event, 'projects-window', 'sw')"></div>
-            <div class="resize-handle resize-s" onmousedown="startResize(event, 'projects-window', 's')"></div>
-            <div class="resize-handle resize-se" onmousedown="startResize(event, 'projects-window', 'se')"></div>
-            <div class="window-header" onmousedown="startDrag(event, 'projects-window')">
+        <div class="window finder-style window-position-projects" id="projects-window" role="dialog" aria-label="Projects Window">
+            <div class="resize-handle resize-nw" onmousedown="PortfolioApp.startResize(event, 'projects-window', 'nw')"></div>
+            <div class="resize-handle resize-n" onmousedown="PortfolioApp.startResize(event, 'projects-window', 'n')"></div>
+            <div class="resize-handle resize-ne" onmousedown="PortfolioApp.startResize(event, 'projects-window', 'ne')"></div>
+            <div class="resize-handle resize-w" onmousedown="PortfolioApp.startResize(event, 'projects-window', 'w')"></div>
+            <div class="resize-handle resize-e" onmousedown="PortfolioApp.startResize(event, 'projects-window', 'e')"></div>
+            <div class="resize-handle resize-sw" onmousedown="PortfolioApp.startResize(event, 'projects-window', 'sw')"></div>
+            <div class="resize-handle resize-s" onmousedown="PortfolioApp.startResize(event, 'projects-window', 's')"></div>
+            <div class="resize-handle resize-se" onmousedown="PortfolioApp.startResize(event, 'projects-window', 'se')"></div>
+            <div class="window-header" onmousedown="PortfolioApp.startDrag(event, 'projects-window')">
                 <div class="window-controls">
-                    <button class="control close" onclick="closeWindow('projects-window')"></button>
-                    <button class="control minimize" onclick="minimizeWindow('projects-window')"></button>
-                    <button class="control expand"></button>
+                    <button class="control close" onclick="PortfolioApp.closeWindow('projects-window')"></button>
+                    <button class="control minimize" onclick="PortfolioApp.minimizeWindow('projects-window')"></button>
+                    <button class="control expand" onclick="PortfolioApp.maximizeWindow('projects-window')"></button>
                 </div>
                 <div class="window-title">Projects</div>
             </div>
@@ -159,25 +210,25 @@
                 <div class="finder-sidebar">
                     <div class="sidebar-section">
                         <span class="sidebar-title">Favorites</span>
-                        <div class="sidebar-item active" onclick="filterProjects('all')">
+                        <div class="sidebar-item active" onclick="PortfolioApp.filterProjects('all')">
                             <span>All Projects</span>
                         </div>
                     </div>
                     <div class="sidebar-section">
                         <span class="sidebar-title">Categories</span>
-                        <div class="sidebar-item" onclick="filterProjects('UX/UI Design')">
+                        <div class="sidebar-item" onclick="PortfolioApp.filterProjects('UX/UI Design')">
                             <span>UX/UI Design</span>
                         </div>
-                        <div class="sidebar-item" onclick="filterProjects('Branding')">
+                        <div class="sidebar-item" onclick="PortfolioApp.filterProjects('Branding')">
                             <span>Branding</span>
                         </div>
-                        <div class="sidebar-item" onclick="filterProjects('Web Design')">
+                        <div class="sidebar-item" onclick="PortfolioApp.filterProjects('Web Design')">
                             <span>Web Design</span>
                         </div>
-                        <div class="sidebar-item" onclick="filterProjects('Mobile App')">
+                        <div class="sidebar-item" onclick="PortfolioApp.filterProjects('Mobile App')">
                             <span>Mobile App</span>
                         </div>
-                        <div class="sidebar-item" onclick="filterProjects('Dashboard')">
+                        <div class="sidebar-item" onclick="PortfolioApp.filterProjects('Dashboard')">
                             <span>Dashboard</span>
                         </div>
                     </div>
@@ -186,7 +237,7 @@
                     <div class="project-list" id="project-list">
                         <div class="project-item"
                             data-tags="UX/UI Design,SAS Design,Dashboard,Enterprise Software,Usability"
-                            onclick="openProject('corsox')">
+                            onclick="PortfolioApp.openProject('corsox')">
                             <div class="project-thumb">
                                 <img src="Img Proyectos/Corsox/Corsox Gallery Banner.png" alt="Corsox Farmatodo">
                             </div>
@@ -197,7 +248,7 @@
                             <span class="project-date">2025</span>
                         </div>
                         <div class="project-item" data-tags="UX/UI Design,Branding,Mobile App,Illustration"
-                            onclick="openProject('saldo')">
+                            onclick="PortfolioApp.openProject('saldo')">
                             <div class="project-thumb">
                                 <img src="Img Proyectos/Saldo/Saldo gallery Banner.png" alt="Saldo App">
                             </div>
@@ -208,7 +259,7 @@
                             <span class="project-date">2025</span>
                         </div>
                         <div class="project-item" data-tags="Branding,Visual Identity,Illustration,Strategy"
-                            onclick="openProject('dulcegracia')">
+                            onclick="PortfolioApp.openProject('dulcegracia')">
                             <div class="project-thumb">
                                 <img src="Img Proyectos/Dulce Gracia/Dulce Gracia Banner.png" alt="Dulce Gracia">
                             </div>
@@ -219,7 +270,7 @@
                             <span class="project-date">2025</span>
                         </div>
                         <div class="project-item" data-tags="UX Research,Information Architecture,Web Design,Usability"
-                            onclick="openProject('conalpe')">
+                            onclick="PortfolioApp.openProject('conalpe')">
                             <div class="project-thumb">
                                 <img src="Img Proyectos/Conalpe/Conalpe Gallery Banner.png" alt="Conalpe">
                             </div>
@@ -229,8 +280,9 @@
                             </div>
                             <span class="project-date">2024</span>
                         </div>
-                        <div class="project-item" data-tags="UX/UI Design,SAS Design,Dashboard,Enterprise Software,Usability"
-                            onclick="openProject('habitta')">
+                        <div class="project-item"
+                            data-tags="UX/UI Design,SAS Design,Dashboard,Enterprise Software,Usability"
+                            onclick="PortfolioApp.openProject('habitta')">
                             <div class="project-thumb">
                                 <img src="Img Proyectos/habitta/habitta Banner.png" alt="Habitta">
                             </div>
@@ -249,108 +301,248 @@
         </div>
 
         <!-- Notes Window -->
-        <div class="window notes-window closed" id="notes-window" style="left: 150px; top: 150px; display: none;">
-            <div class="resize-handle resize-nw" onmousedown="startResize(event, 'notes-window', 'nw')"></div>
-            <div class="resize-handle resize-n" onmousedown="startResize(event, 'notes-window', 'n')"></div>
-            <div class="resize-handle resize-ne" onmousedown="startResize(event, 'notes-window', 'ne')"></div>
-            <div class="resize-handle resize-w" onmousedown="startResize(event, 'notes-window', 'w')"></div>
-            <div class="resize-handle resize-e" onmousedown="startResize(event, 'notes-window', 'e')"></div>
-            <div class="resize-handle resize-sw" onmousedown="startResize(event, 'notes-window', 'sw')"></div>
-            <div class="resize-handle resize-s" onmousedown="startResize(event, 'notes-window', 's')"></div>
-            <div class="resize-handle resize-se" onmousedown="startResize(event, 'notes-window', 'se')"></div>
-            <div class="window-header" onmousedown="startDrag(event, 'notes-window')">
+        <div class="window notes-window window-position-notes closed" id="notes-window" role="dialog" aria-label="Notes Window">
+            <div class="resize-handle resize-nw" onmousedown="PortfolioApp.startResize(event, 'notes-window', 'nw')"></div>
+            <div class="resize-handle resize-n" onmousedown="PortfolioApp.startResize(event, 'notes-window', 'n')"></div>
+            <div class="resize-handle resize-ne" onmousedown="PortfolioApp.startResize(event, 'notes-window', 'ne')"></div>
+            <div class="resize-handle resize-w" onmousedown="PortfolioApp.startResize(event, 'notes-window', 'w')"></div>
+            <div class="resize-handle resize-e" onmousedown="PortfolioApp.startResize(event, 'notes-window', 'e')"></div>
+            <div class="resize-handle resize-sw" onmousedown="PortfolioApp.startResize(event, 'notes-window', 'sw')"></div>
+            <div class="resize-handle resize-s" onmousedown="PortfolioApp.startResize(event, 'notes-window', 's')"></div>
+            <div class="resize-handle resize-se" onmousedown="PortfolioApp.startResize(event, 'notes-window', 'se')"></div>
+            <div class="window-header" onmousedown="PortfolioApp.startDrag(event, 'notes-window')">
                 <div class="window-controls">
-                    <button class="control close" onclick="closeWindow('notes-window')"></button>
-                    <button class="control minimize" onclick="minimizeWindow('notes-window')"></button>
-                    <button class="control expand"></button>
+                    <button class="control close" onclick="PortfolioApp.closeWindow('notes-window')"></button>
+                    <button class="control minimize" onclick="PortfolioApp.minimizeWindow('notes-window')"></button>
+                    <button class="control expand" onclick="PortfolioApp.maximizeWindow('notes-window')"></button>
                 </div>
                 <div class="window-title">Notes</div>
             </div>
             <div class="window-content notes-content">
+                <!-- Notes List Sidebar -->
                 <div class="notes-sidebar">
-                    <div class="notes-list">
-                        <div class="note-item active" onclick="selectNote(0)">
-                            <h4>Oferta de valor</h4>
-                            <p>Inteligencia Artificial & Flujos de Trabajo Híbridos 🎨 Animación & Interacción de
-                                Alto Nivel 🛠️ Tech Stack Especializado</p>
+                    <div class="notes-folder-header">
+                        <span class="folder-name">iCloud</span>
+                        <span class="note-count" id="notes-count">3 Notes</span>
+                    </div>
+                    <div class="notes-list" id="notes-list">
+                        <div class="note-item active" onclick="PortfolioApp.selectNote(0)">
+                            <div class="note-item-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                    <polyline points="10 9 9 9 8 9" />
+                                </svg>
+                            </div>
+                            <div class="note-item-content">
+                                <h4>Oferta de valor</h4>
+                                <p>Inteligencia Artificial & Flujos de Trabajo Híbridos 🎨 Animación & Interacción de
+                                    Alto Nivel 🛠️ Tech Stack Especializado</p>
+                            </div>
                             <span class="note-date">Today</span>
                         </div>
-                        <div class="note-item" onclick="selectNote(1)">
-                            <h4>Mis herramientas de trabajo</h4>
-                            <p>Frontend: Three.js, GSAP CMS: WordPress, Elementor Pro, Shopify, framer IA: ComfyUI,
-                                Claude Code, Flow</p>
+                        <div class="note-item" onclick="PortfolioApp.selectNote(1)">
+                            <div class="note-item-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                    <polyline points="10 9 9 9 8 9" />
+                                </svg>
+                            </div>
+                            <div class="note-item-content">
+                                <h4>Mis herramientas de trabajo</h4>
+                                <p>Frontend: Three.js, GSAP CMS: WordPress, Elementor Pro, Shopify, framer IA: ComfyUI,
+                                    Claude Code, Flow</p>
+                            </div>
                             <span class="note-date">Today</span>
                         </div>
-                        <div class="note-item" onclick="selectNote(2)">
-                            <h4>Mi Trayectoria - Donde He Trabajado</h4>
-                            <p>1. Lil horse Inc. - Lead Designer 2. Digital Arkitechs - Consultor 3. Draketech - Lead
-                                UI/UX 4. G lab - Web Designer</p>
+                        <div class="note-item" onclick="PortfolioApp.selectNote(2)">
+                            <div class="note-item-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                    <polyline points="10 9 9 9 8 9" />
+                                </svg>
+                            </div>
+                            <div class="note-item-content">
+                                <h4>Mi Trayectoria - Donde He Trabajado</h4>
+                                <p>1. Lil horse Inc. - Lead Designer 2. Digital Arkitechs - Consultor 3. Draketech -
+                                    Lead UI/UX 4. G lab - Web Designer</p>
+                            </div>
                             <span class="note-date">Today</span>
                         </div>
                     </div>
                 </div>
+                <!-- Note Editor -->
                 <div class="note-editor-container">
-                    <div class="note-editor-header">
-                        <span>Edited today at 2:30 PM</span>
+                    <div class="note-editor-toolbar">
+                        <div class="note-title-editable" contenteditable="true" id="note-title"
+                            onblur="updateNoteTitle()">Oferta de valor</div>
+                        <div class="note-timestamp">Today at 2:30 PM</div>
                     </div>
                     <div class="note-editor-content" id="note-editor-content">
-                        <h1>Oferta de valor</h1>
-                        <h2>Inteligencia Artificial & Flujos de Trabajo Híbridos</h2>
-                        <ul>
-                            <li>Desarrollo de assets visuales con IA (ComfyUI, Midjourney)</li>
-                            <li>Optimización de flujos creativos con automatización</li>
-                            <li>Aceleración de producción de interfaces con IA</li>
-                            <li>Integración de modelos LLM en experiencias web</li>
-                            <li>Diseño assistivo: Prototipado acelerado 50% más rápido</li>
-                            <li>Reducción de costos de producción manteniendo calidad premium</li>
-                            <li>Prompt Engineering para assets web</li>
-                            <li>Optimización de workflows de diseño con IA</li>
-                        </ul>
-                        <h2>Animación & Interacción de Alto Nivel</h2>
-                        <ul>
-                            <li>Implementación de Three.js para experiencias inmersivas</li>
-                            <li>Microinteracciones con GSAP que aumentan engagement +35%</li>
-                            <li>Optimización de rendimiento (Lighthouse 90+)</li>
-                            <li>Transiciones de scroll con ScrollTrigger</li>
-                            <li>Performance-first: Carga sub-1s incluso con animaciones complejas</li>
-                        </ul>
-                        <h2>Tech Stack Especializado</h2>
-                        <p><strong>Frontend:</strong> Three.js, GSAP</p>
-                        <p><strong>CMS:</strong> WordPress, Elementor Pro, Shopify, framer</p>
-                        <p><strong>IA:</strong> ComfyUI, Claude Code, Flow</p>
-                        <p><strong>Diseño:</strong> Figma, Adobe Suite</p>
-                        <p><strong>Performance UX:</strong> attentioninsight</p>
+                        <div class="offer-hero">
+                            <div class="offer-hero-badge">Portfolio 2025</div>
+                            <h1>Experiencias Web<br>de Alto Impacto</h1>
+                            <p class="offer-hero-subtitle">Diseño + Tecnología + IA al servicio de tu producto digital</p>
+                        </div>
+
+                        <div class="offer-stats">
+                            <div class="offer-stat">
+                                <div class="offer-stat-value">50%</div>
+                                <div class="offer-stat-label">Más rápido con IA</div>
+                            </div>
+                            <div class="offer-stat">
+                                <div class="offer-stat-value">90+</div>
+                                <div class="offer-stat-label">Lighthouse Score</div>
+                            </div>
+                            <div class="offer-stat">
+                                <div class="offer-stat-value">&lt;1s</div>
+                                <div class="offer-stat-label">Tiempo de carga</div>
+                            </div>
+                        </div>
+
+                        <div class="offer-sections-title">Capacidades</div>
+
+                        <div class="offer-card">
+                            <div class="offer-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                                </svg>
+                            </div>
+                            <div class="offer-card-content">
+                                <h3>Assets con IA y Prompt Engineering</h3>
+                                <p>Generación de activos de alta fidelidad mediante pipelines especializados. ComfyUI, Midjourney y modelos LLM integrados en workflows de producción optimizados.</p>
+                            </div>
+                        </div>
+
+                        <div class="offer-card">
+                            <div class="offer-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                            <div class="offer-card-content">
+                                <h3>Ciclo de Diseño asistido por IA</h3>
+                                <p>La inteligencia artificial se integra en cada fase del desarrollo. Textos, imágenes y video se refinan con ayuda del modelo, permitiendo exploraciones conceptuales más amplias.</p>
+                            </div>
+                        </div>
+
+                        <div class="offer-card">
+                            <div class="offer-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
+                            </div>
+                            <div class="offer-card-content">
+                                <h3>Automatización de Flujos</h3>
+                                <p>Sistemas que se adaptan a tu proceso. Menor consumo de recursos, mayor retorno de valor en cada entrega. La tecnología trabaja en segundo plano mientras tu creatividad fluye.</p>
+                            </div>
+                        </div>
+
+                        <div class="offer-card">
+                            <div class="offer-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"/>
+                                </svg>
+                            </div>
+                            <div class="offer-card-content">
+                                <h3>Entornos 3D Inmersivos</h3>
+                                <p>Three.js para experiencias que se sienten tangibles. Renderizado en tiempo real que respeta los límites del dispositivo.</p>
+                            </div>
+                        </div>
+
+                        <div class="offer-card">
+                            <div class="offer-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="offer-card-content">
+                                <h3>Microinteracciones Conscientes</h3>
+                                <p>GSAP optimizado para feedback visual preciso. Cada gesto responde con intención y elegancia.</p>
+                            </div>
+                        </div>
+
+                        <div class="offer-card">
+                            <div class="offer-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                </svg>
+                            </div>
+                            <div class="offer-card-content">
+                                <h3>Rendimiento Lighthouse 90+</h3>
+                                <p>Métricas de carga sub-1s incluso con WebGL activo. La fluidez que el usuario final percibe como premium.</p>
+                            </div>
+                        </div>
+
+                        <div class="offer-perception">
+                            <div class="offer-perception-title">Lo que percibe el usuario</div>
+                            <div class="offer-perception-grid">
+                                <div class="offer-perception-item">
+                                    <div class="offer-perception-label">Precisión técnica</div>
+                                    <div class="offer-perception-arrow">→</div>
+                                    <div class="offer-perception-value">Calidad inmediata</div>
+                                </div>
+                                <div class="offer-perception-item">
+                                    <div class="offer-perception-label">Innovación silenciosa</div>
+                                    <div class="offer-perception-arrow">→</div>
+                                    <div class="offer-perception-value">Valor elevado</div>
+                                </div>
+                                <div class="offer-perception-item">
+                                    <div class="offer-perception-label">Fluidez inquebrantable</div>
+                                    <div class="offer-perception-arrow">→</div>
+                                    <div class="offer-perception-value">Experiencia superior</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Project Detail Window (Dynamic) -->
-        <div class="window project-detail" id="project-detail-window" style="left: 300px; top: 100px; display: none;">
-            <div class="resize-handle resize-nw" onmousedown="startResize(event, 'project-detail-window', 'nw')"></div>
-            <div class="resize-handle resize-n" onmousedown="startResize(event, 'project-detail-window', 'n')"></div>
-            <div class="resize-handle resize-ne" onmousedown="startResize(event, 'project-detail-window', 'ne')"></div>
-            <div class="resize-handle resize-w" onmousedown="startResize(event, 'project-detail-window', 'w')"></div>
-            <div class="resize-handle resize-e" onmousedown="startResize(event, 'project-detail-window', 'e')"></div>
-            <div class="resize-handle resize-sw" onmousedown="startResize(event, 'project-detail-window', 'sw')"></div>
-            <div class="resize-handle resize-s" onmousedown="startResize(event, 'project-detail-window', 's')"></div>
-            <div class="resize-handle resize-se" onmousedown="startResize(event, 'project-detail-window', 'se')"></div>
-            <div class="window-header project-header" onmousedown="startDrag(event, 'project-detail-window')">
+        <div class="window project-detail window-position-project" id="project-detail-window" role="dialog" aria-label="Project Detail Window">
+            <div class="resize-handle resize-nw" onmousedown="PortfolioApp.startResize(event, 'project-detail-window', 'nw')"></div>
+            <div class="resize-handle resize-n" onmousedown="PortfolioApp.startResize(event, 'project-detail-window', 'n')"></div>
+            <div class="resize-handle resize-ne" onmousedown="PortfolioApp.startResize(event, 'project-detail-window', 'ne')"></div>
+            <div class="resize-handle resize-w" onmousedown="PortfolioApp.startResize(event, 'project-detail-window', 'w')"></div>
+            <div class="resize-handle resize-e" onmousedown="PortfolioApp.startResize(event, 'project-detail-window', 'e')"></div>
+            <div class="resize-handle resize-sw" onmousedown="PortfolioApp.startResize(event, 'project-detail-window', 'sw')"></div>
+            <div class="resize-handle resize-s" onmousedown="PortfolioApp.startResize(event, 'project-detail-window', 's')"></div>
+            <div class="resize-handle resize-se" onmousedown="PortfolioApp.startResize(event, 'project-detail-window', 'se')"></div>
+            <div class="window-header project-header" onmousedown="PortfolioApp.startDrag(event, 'project-detail-window')">
                 <div class="window-controls">
-                    <button class="control close" onclick="closeWindow('project-detail-window')"></button>
-                    <button class="control minimize" onclick="minimizeWindow('project-detail-window')"></button>
-                    <button class="control expand"></button>
+                    <button class="control close" onclick="PortfolioApp.closeWindow('project-detail-window')"></button>
+                    <button class="control minimize" onclick="PortfolioApp.minimizeWindow('project-detail-window')"></button>
+                    <button class="control expand" onclick="PortfolioApp.maximizeWindow('project-detail-window')"></button>
                 </div>
                 <div class="project-nav-header">
-                    <button class="nav-arrow nav-prev" id="nav-prev-btn" onclick="navigateProject(-1)" title="Proyecto anterior">
+                    <button class="nav-arrow nav-prev" id="nav-prev-btn" onclick="PortfolioApp.navigateProject(-1)"
+                        title="Proyecto anterior">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M15 18l-6-6 6-6"/>
+                            <path d="M15 18l-6-6 6-6" />
                         </svg>
                     </button>
                     <div class="window-title" id="project-detail-title">Project</div>
-                    <button class="nav-arrow nav-next" id="nav-next-btn" onclick="navigateProject(1)" title="Siguiente proyecto">
+                    <button class="nav-arrow nav-next" id="nav-next-btn" onclick="PortfolioApp.navigateProject(1)"
+                        title="Siguiente proyecto">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 18l6-6-6-6"/>
+                            <path d="M9 18l6-6-6-6" />
                         </svg>
                     </button>
                 </div>
@@ -366,19 +558,19 @@
         <!-- Dock -->
         <div class="dock">
             <div class="dock-container">
-                <div class="dock-item doc-about" onclick="openWindow('about')">
+                <div class="dock-item doc-about" onclick="PortfolioApp.openWindow('about')">
                     <div class="dock-icon img-icon">
                         <img src="img/profile img .webp" alt="About">
                     </div>
                     <div class="dock-tooltip">About</div>
                 </div>
-                <div class="dock-item doct-proyects" onclick="openWindow('projects')">
+                <div class="dock-item dock-projects" onclick="PortfolioApp.openWindow('projects')">
                     <div class="dock-icon img-icon">
                         <img src="icons/proyects.avif" alt="Projects">
                     </div>
                     <div class="dock-tooltip">Projects</div>
                 </div>
-                <div class="dock-item doc-notes" onclick="openWindow('notes')">
+                <div class="dock-item doc-notes" onclick="PortfolioApp.openWindow('notes')">
                     <div class="dock-icon img-icon">
                         <img src="icons/notes.svg" alt="Notes">
                     </div>
