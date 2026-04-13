@@ -846,8 +846,8 @@ const PortfolioApp = (function() {
 
         titleEl.textContent = project.title;
 
-        // Add banner as last image in gallery
-        const galleryImages = [...project.images, project.banner];
+        // Add banner as first image in gallery
+        const galleryImages = [project.banner, ...project.images];
         const sliderHtml = generateSliderHtml(galleryImages, projectId);
         const servicesHtml = project.services.map(service =>
             `<span class="service-tag">${escapeHTML(service)}</span>`
@@ -1040,8 +1040,8 @@ const PortfolioApp = (function() {
     function openImageModal(src, projectId) {
         const project = projectData[projectId];
         if (project) {
-            // Include banner as last image
-            currentModalImages = [...project.images, project.banner];
+            // Include banner as first image
+            currentModalImages = [project.banner, ...project.images];
             currentModalIndex = currentModalImages.indexOf(src);
             if (currentModalIndex === -1) currentModalIndex = 0;
         }
