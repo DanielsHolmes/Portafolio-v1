@@ -1024,7 +1024,17 @@ const PortfolioApp = (function() {
         }
     }
 
-    // Image Modal Navigation
+    // Image Modal Navigation with Zoom
+    let imageZoomLevel = 1;
+    let imagePanX = 0;
+    let imagePanY = 0;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let isZoomed = false;
+    let initialPinchDistance = 0;
+    let pinchZoomLevel = 1;
+
     function openImageModal(src, projectId) {
         const project = projectData[projectId];
         if (project) {
@@ -1032,6 +1042,12 @@ const PortfolioApp = (function() {
             currentModalIndex = currentModalImages.indexOf(src);
             if (currentModalIndex === -1) currentModalIndex = 0;
         }
+
+        // Reset zoom state
+        imageZoomLevel = 1;
+        imagePanX = 0;
+        imagePanY = 0;
+        isZoomed = false;
 
         createModal(currentModalImages[currentModalIndex], projectId);
     }
@@ -1049,12 +1065,165 @@ const PortfolioApp = (function() {
         modal.innerHTML = `
             <div class="modal-backdrop" onclick="PortfolioApp.closeImageModal()" role="presentation"></div>
             <button class="modal-nav modal-prev" onclick="PortfolioApp.navigateImage(-1, '${escapeHTML(projectId)}')" ${currentModalIndex === 0 ? 'style="opacity: 0.3; pointer-events: none;" aria-disabled="true"' : 'aria-label="Previous image"'}>&#8249;</button>
-            <img src="${escapeHTML(src)}" alt="Project Image" class="modal-image">
+            <div class="modal-image-wrapper">
+                <img src="${escapeHTML(src)}" alt="Project Image" class="modal-image" id="modal-zoom-image">
+            </div>
             <button class="modal-nav modal-next" onclick="PortfolioApp.navigateImage(1, '${escapeHTML(projectId)}')" ${currentModalIndex === currentModalImages.length - 1 ? 'style="opacity: 0.3; pointer-events: none;" aria-disabled="true"' : 'aria-label="Next image"'}>&#8250;</button>
             <button class="modal-close" onclick="PortfolioApp.closeImageModal()" aria-label="Close image viewer">&times;</button>
+            <div class="modal-zoom-controls">
+                <button class="zoom-btn zoom-in" onclick="PortfolioApp.zoomImage(1.5)" aria-label="Zoom in">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/>
+                    </svg>
+                </button>
+                <button class="zoom-btn zoom-out" onclick="PortfolioApp.zoomImage(0.67)" aria-label="Zoom out">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35M8 11h6"/>
+                    </svg>
+                </button>
+                <button class="zoom-btn zoom-reset" onclick="PortfolioApp.resetZoom()" aria-label="Reset zoom" style="display: none;" id="zoom-reset-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                        <path d="M3 3v5h5"/>
+                    </svg>
+                </button>
+            </div>
             <div class="modal-counter" aria-live="polite">${currentModalIndex + 1} / ${currentModalImages.length}</div>
         `;
         document.body.appendChild(modal);
+
+        // Setup zoom interactions
+        const imageEl = document.getElementById('modal-zoom-image');
+        if (imageEl) {
+            // Click to zoom
+            imageEl.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (!isZoomed) {
+                    // Zoom in at click position
+                    const rect = imageEl.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width;
+                    const y = (e.clientY - rect.top) / rect.height;
+                    PortfolioApp.zoomToPosition(2, x, y);
+                } else {
+                    PortfolioApp.resetZoom();
+                }
+            });
+
+            // Mouse wheel zoom
+            imageEl.addEventListener('wheel', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                PortfolioApp.zoomImage(delta);
+            }, { passive: false });
+
+            // Mouse drag to pan when zoomed
+            imageEl.addEventListener('mousedown', function(e) {
+                if (isZoomed) {
+                    isDragging = true;
+                    dragStartX = e.clientX - imagePanX;
+                    dragStartY = e.clientY - imagePanY;
+                    imageEl.style.cursor = 'grabbing';
+                    e.preventDefault();
+                }
+            });
+
+            document.addEventListener('mousemove', function(e) {
+                if (isDragging) {
+                    imagePanX = e.clientX - dragStartX;
+                    imagePanY = e.clientY - dragStartY;
+                    PortfolioApp.applyTransform();
+                }
+            });
+
+            document.addEventListener('mouseup', function() {
+                if (isDragging) {
+                    isDragging = false;
+                    imageEl.style.cursor = isZoomed ? 'grab' : 'pointer';
+                }
+            });
+
+            // Touch support - pinch to zoom
+            let lastTouchDistance = 0;
+            let touchStartPanX = 0;
+            let touchStartPanY = 0;
+            let singleTouchStartTime = 0;
+            let singleTouchStartX = 0;
+            let singleTouchStartY = 0;
+
+            imageEl.addEventListener('touchstart', function(e) {
+                if (e.touches.length === 2) {
+                    // Pinch start
+                    e.preventDefault();
+                    const touch1 = e.touches[0];
+                    const touch2 = e.touches[1];
+                    lastTouchDistance = Math.hypot(
+                        touch2.clientX - touch1.clientX,
+                        touch2.clientY - touch1.clientY
+                    );
+                    pinchZoomLevel = imageZoomLevel;
+                } else if (e.touches.length === 1 && isZoomed) {
+                    // Single touch for panning
+                    const touch = e.touches[0];
+                    touchStartPanX = touch.clientX - imagePanX;
+                    touchStartPanY = touch.clientY - imagePanY;
+                    singleTouchStartTime = Date.now();
+                    singleTouchStartX = touch.clientX;
+                    singleTouchStartY = touch.clientY;
+                }
+            }, { passive: false });
+
+            imageEl.addEventListener('touchmove', function(e) {
+                if (e.touches.length === 2) {
+                    // Pinch zoom
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const touch1 = e.touches[0];
+                    const touch2 = e.touches[1];
+                    const distance = Math.hypot(
+                        touch2.clientX - touch1.clientX,
+                        touch2.clientY - touch1.clientY
+                    );
+                    const scale = distance / lastTouchDistance;
+                    imageZoomLevel = Math.max(1, Math.min(5, pinchZoomLevel * scale));
+
+                    if (imageZoomLevel <= 1.05) {
+                        imageZoomLevel = 1;
+                        imagePanX = 0;
+                        imagePanY = 0;
+                        isZoomed = false;
+                    } else {
+                        isZoomed = true;
+                    }
+
+                    applyTransform();
+                    updateZoomButtons();
+                } else if (e.touches.length === 1 && isZoomed) {
+                    // Pan with touch
+                    e.preventDefault();
+                    const touch = e.touches[0];
+                    imagePanX = touch.clientX - touchStartPanX;
+                    imagePanY = touch.clientY - touchStartPanY;
+                    applyTransform();
+                }
+            }, { passive: false });
+
+            imageEl.addEventListener('touchend', function(e) {
+                if (e.changedTouches.length === 1 && !isZoomed) {
+                    // Tap to zoom
+                    const touch = e.changedTouches[0];
+                    const rect = imageEl.getBoundingClientRect();
+                    const x = (touch.clientX - rect.left) / rect.width;
+                    const y = (touch.clientY - rect.top) / rect.height;
+                    PortfolioApp.zoomToPosition(2, x, y);
+                } else if (e.touches.length === 0) {
+                    // Reset pinch state
+                    lastTouchDistance = 0;
+                }
+            });
+        }
 
         document.addEventListener('keydown', handleModalKeydown);
     }
@@ -1065,7 +1234,87 @@ const PortfolioApp = (function() {
         if (currentModalIndex < 0) currentModalIndex = 0;
         if (currentModalIndex >= currentModalImages.length) currentModalIndex = currentModalImages.length - 1;
 
+        // Reset zoom when navigating
+        imageZoomLevel = 1;
+        imagePanX = 0;
+        imagePanY = 0;
+        isZoomed = false;
+
         createModal(currentModalImages[currentModalIndex], projectId);
+    }
+
+    function zoomImage(factor) {
+        const imageEl = document.getElementById('modal-zoom-image');
+        if (!imageEl) return;
+
+        imageZoomLevel = Math.max(1, Math.min(5, imageZoomLevel * factor));
+
+        if (imageZoomLevel <= 1.05) {
+            imageZoomLevel = 1;
+            imagePanX = 0;
+            imagePanY = 0;
+            isZoomed = false;
+        } else {
+            isZoomed = true;
+        }
+
+        applyTransform();
+        updateZoomButtons();
+    }
+
+    function zoomToPosition(factor, x, y) {
+        const imageEl = document.getElementById('modal-zoom-image');
+        if (!imageEl) return;
+
+        const newZoom = Math.min(5, imageZoomLevel * factor);
+        imageZoomLevel = newZoom;
+        isZoomed = newZoom > 1.05;
+
+        // Calculate pan to zoom towards click position
+        if (isZoomed) {
+            const rect = imageEl.getBoundingClientRect();
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const clickOffsetX = (x - 0.5) * rect.width;
+            const clickOffsetY = (y - 0.5) * rect.height;
+
+            imagePanX = -clickOffsetX * (imageZoomLevel - 1) / imageZoomLevel;
+            imagePanY = -clickOffsetY * (imageZoomLevel - 1) / imageZoomLevel;
+        }
+
+        applyTransform();
+        updateZoomButtons();
+    }
+
+    function resetZoom() {
+        imageZoomLevel = 1;
+        imagePanX = 0;
+        imagePanY = 0;
+        isZoomed = false;
+        applyTransform();
+        updateZoomButtons();
+    }
+
+    function applyTransform() {
+        const imageEl = document.getElementById('modal-zoom-image');
+        if (!imageEl) return;
+
+        imageEl.style.transform = `scale(${imageZoomLevel}) translate(${imagePanX / imageZoomLevel}px, ${imagePanY / imageZoomLevel}px)`;
+        imageEl.style.transition = isDragging ? 'none' : 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        imageEl.style.cursor = isZoomed ? 'grab' : 'pointer';
+
+        // Show/hide reset button
+        const resetBtn = document.getElementById('zoom-reset-btn');
+        if (resetBtn) {
+            resetBtn.style.display = isZoomed ? 'flex' : 'none';
+        }
+    }
+
+    function updateZoomButtons() {
+        const resetBtn = document.getElementById('zoom-reset-btn');
+        if (resetBtn) {
+            resetBtn.style.display = isZoomed ? 'flex' : 'none';
+        }
     }
 
     function closeImageModal() {
@@ -1321,6 +1570,10 @@ const PortfolioApp = (function() {
         goToSlide: goToSlide,
         openImageModal: openImageModal,
         navigateImage: navigateImage,
+        zoomImage: zoomImage,
+        zoomToPosition: zoomToPosition,
+        resetZoom: resetZoom,
+        applyTransform: applyTransform,
         closeImageModal: closeImageModal,
         filterProjects: filterProjects,
         selectNote: selectNote,
