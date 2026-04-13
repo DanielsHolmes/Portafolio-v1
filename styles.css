@@ -2388,10 +2388,22 @@ body {
         max-height: calc(100vh - 135px);
     }
 
+    .finder-toolbar {
+        padding: 10px 14px;
+    }
+
+    .finder-path {
+        font-size: 12px;
+    }
+
     .finder-content,
     .notes-content {
         flex-direction: column;
         height: calc(100% - 40px) !important;
+    }
+
+    .finder-sidebar {
+        display: none;
     }
 
     .notes-folder-header {
@@ -2454,17 +2466,25 @@ body {
     }
 
     .finder-main {
-        padding: 10px 12px;
+        padding: 12px;
         flex: 1;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .project-list {
-        gap: 2px;
+        gap: 4px;
     }
 
     .project-item {
-        padding: 10px 12px;
+        padding: 12px;
+        min-height: 44px;
+    }
+
+    .project-thumb {
+        width: 56px;
+        height: 56px;
+        border-radius: 8px;
     }
 
     .project-item:nth-child(2n + 1) {
@@ -2473,6 +2493,7 @@ body {
 
     .project-name {
         font-size: 13px;
+        flex-wrap: wrap;
     }
 
     .project-type {
@@ -2480,13 +2501,6 @@ body {
         padding: 2px 6px;
         background: rgba(0, 0, 0, 0.08);
         color: #555;
-    }
-
-    .notes-sidebar {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #d1d1d6;
-        max-height: 120px;
         flex-shrink: 0;
     }
 
@@ -2790,6 +2804,56 @@ body {
     }
 
     /* Project detail mobile */
+    .project-header .window-header {
+        cursor: default;
+    }
+
+    .project-nav-header {
+        gap: 6px;
+        margin-right: 0;
+        justify-content: flex-start;
+    }
+
+    .project-nav-header .window-title {
+        max-width: none;
+        font-size: 12px;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .nav-arrow {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.05);
+        opacity: 0.8;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(0, 122, 255, 0.2);
+    }
+
+    .nav-arrow svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .nav-arrow:active:not(:disabled) {
+        background: rgba(0, 0, 0, 0.12);
+        transform: scale(0.92);
+    }
+
+    .nav-arrow:disabled {
+        opacity: 0.2;
+        background: transparent;
+    }
+
+    .project-counter-header {
+        font-size: 11px;
+        min-width: auto;
+        text-align: center;
+        margin-left: auto;
+    }
+
     .project-detail-content {
         gap: 12px;
     }

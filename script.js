@@ -664,7 +664,7 @@ const PortfolioApp = (function() {
 
     // Drag Functionality
     function startDrag(e, windowId) {
-        if (e.target.closest('.control')) {
+        if (e.target.closest('.control') || e.target.closest('.nav-arrow')) {
             return;
         }
 
