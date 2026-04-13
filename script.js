@@ -89,7 +89,7 @@ const PortfolioApp = (function() {
             year: "2024",
             category: "UX Research • Information Architecture • Web Design",
             services: ["Web Design", "UI Design", "UX Design", "Auditoria de Usabilidad"],
-            tags: "UX Research, Information Architecture, Web Design, Usability",
+            tags: "UX/UI Design, UX Research, Information Architecture, Web Design, Usability",
             description: "Rediseño integral del portal web institucional de Conalpe, una entidad de alcance nacional en Colombia. El objetivo fue optimizar la gestión de su amplio catálogo de servicios e información para mejorar la accesibilidad pública.",
             reto: "La saturación de contenido generaba una arquitectura de información compleja y poco intuitiva. Los usuarios se perdían fácilmente en la navegación, lo que dificultaba el acceso a los servicios clave y reducía la eficacia del portal.",
             solucion: "Lideré una investigación UX mediante mapas de usuario y grabaciones de sesiones reales para identificar puntos de fricción. Definí una nueva jerarquía visual y una estética limpia, decidiendo estratégicamente qué elementos rediseñar desde cero y cuáles actualizar para garantizar una navegación orgánica y reconocible.",
