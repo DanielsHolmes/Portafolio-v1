@@ -1097,9 +1097,15 @@ const PortfolioApp = (function() {
         // Setup zoom interactions
         const imageEl = document.getElementById('modal-zoom-image');
         if (imageEl) {
+            let wasDragged = false;
+
             // Click to zoom
             imageEl.addEventListener('click', function(e) {
                 e.stopPropagation();
+                if (wasDragged) {
+                    wasDragged = false;
+                    return;
+                }
                 if (!isZoomed) {
                     // Zoom in at click position
                     const rect = imageEl.getBoundingClientRect();
@@ -1123,6 +1129,7 @@ const PortfolioApp = (function() {
             imageEl.addEventListener('mousedown', function(e) {
                 if (isZoomed) {
                     isDragging = true;
+                    wasDragged = false;
                     dragStartX = e.clientX - imagePanX;
                     dragStartY = e.clientY - imagePanY;
                     imageEl.style.cursor = 'grabbing';
@@ -1132,6 +1139,7 @@ const PortfolioApp = (function() {
 
             document.addEventListener('mousemove', function(e) {
                 if (isDragging) {
+                    wasDragged = true;
                     imagePanX = e.clientX - dragStartX;
                     imagePanY = e.clientY - dragStartY;
                     PortfolioApp.applyTransform();
@@ -1149,14 +1157,14 @@ const PortfolioApp = (function() {
             let lastTouchDistance = 0;
             let touchStartPanX = 0;
             let touchStartPanY = 0;
-            let singleTouchStartTime = 0;
-            let singleTouchStartX = 0;
-            let singleTouchStartY = 0;
+            let touchWasPanned = false;
+            let touchWasPinched = false;
 
             imageEl.addEventListener('touchstart', function(e) {
                 if (e.touches.length === 2) {
                     // Pinch start
                     e.preventDefault();
+                    touchWasPinched = true;
                     const touch1 = e.touches[0];
                     const touch2 = e.touches[1];
                     lastTouchDistance = Math.hypot(
@@ -1169,9 +1177,7 @@ const PortfolioApp = (function() {
                     const touch = e.touches[0];
                     touchStartPanX = touch.clientX - imagePanX;
                     touchStartPanY = touch.clientY - imagePanY;
-                    singleTouchStartTime = Date.now();
-                    singleTouchStartX = touch.clientX;
-                    singleTouchStartY = touch.clientY;
+                    touchWasPanned = false;
                 }
             }, { passive: false });
 
@@ -1180,6 +1186,7 @@ const PortfolioApp = (function() {
                     // Pinch zoom
                     e.preventDefault();
                     e.stopPropagation();
+                    touchWasPinched = true;
                     const touch1 = e.touches[0];
                     const touch2 = e.touches[1];
                     const distance = Math.hypot(
@@ -1203,14 +1210,29 @@ const PortfolioApp = (function() {
                 } else if (e.touches.length === 1 && isZoomed) {
                     // Pan with touch
                     e.preventDefault();
+                    e.stopPropagation();
                     const touch = e.touches[0];
-                    imagePanX = touch.clientX - touchStartPanX;
-                    imagePanY = touch.clientY - touchStartPanY;
-                    applyTransform();
+                    const moveX = touch.clientX - touchStartPanX;
+                    const moveY = touch.clientY - touchStartPanY;
+
+                    // Only pan if moved more than 10px (avoid tap detection)
+                    if (Math.abs(moveX) > 10 || Math.abs(moveY) > 10) {
+                        touchWasPanned = true;
+                        imagePanX = moveX;
+                        imagePanY = moveY;
+                        applyTransform();
+                    }
                 }
             }, { passive: false });
 
             imageEl.addEventListener('touchend', function(e) {
+                if (touchWasPanned || touchWasPinched) {
+                    // Don't trigger zoom after pan or pinch
+                    touchWasPanned = false;
+                    touchWasPinched = false;
+                    return;
+                }
+
                 if (e.changedTouches.length === 1 && !isZoomed) {
                     // Tap to zoom
                     const touch = e.changedTouches[0];
@@ -1218,9 +1240,12 @@ const PortfolioApp = (function() {
                     const x = (touch.clientX - rect.left) / rect.width;
                     const y = (touch.clientY - rect.top) / rect.height;
                     PortfolioApp.zoomToPosition(2, x, y);
-                } else if (e.touches.length === 0) {
-                    // Reset pinch state
+                }
+
+                // Reset pinch state
+                if (e.touches.length === 0) {
                     lastTouchDistance = 0;
+                    touchWasPinched = false;
                 }
             });
         }
