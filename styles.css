@@ -3081,8 +3081,22 @@ body {
         height: 20px;
     }
 
+    /* Modal image uses more screen height on mobile */
+    .image-modal {
+        align-items: stretch;
+    }
+
     .modal-image {
+        max-width: 100vw;
+        max-height: 95vh;
+        width: 100vw;
+        object-fit: contain;
         cursor: grab;
+    }
+
+    .modal-image-wrapper {
+        max-width: 100vw;
+        max-height: 95vh;
     }
 
     .modal-image:active {
@@ -3091,6 +3105,15 @@ body {
 
     .modal-image-wrapper::after {
         animation: none;
+    }
+
+    /* Reposition nav arrows and counter for mobile */
+    .modal-nav {
+        top: 50%;
+    }
+
+    .modal-counter {
+        bottom: 15px;
     }
 
     /* Project Detail - fondo más blanco en móvil */
