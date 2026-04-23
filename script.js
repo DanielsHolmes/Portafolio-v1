@@ -100,7 +100,8 @@ const PortfolioApp = (function() {
                 "Img Proyectos/Conalpe/Conalpe gallery/03.png",
                 "Img Proyectos/Conalpe/Conalpe gallery/04.png",
                 "Img Proyectos/Conalpe/Conalpe gallery/05.png",
-                "Img Proyectos/Conalpe/Conalpe gallery/6.png"
+                "Img Proyectos/Conalpe/Conalpe gallery/6.png",
+                "Img Proyectos/Conalpe/Conalpe gallery/7.png"
             ]
         },
         habitta: {
@@ -129,7 +130,7 @@ const PortfolioApp = (function() {
     };
 
     // Project order for navigation
-    const projectOrder = ['corsox', 'saldo', 'dulcegracia', 'conalpe', 'habitta'];
+    const projectOrder = ['conalpe', 'corsox', 'saldo', 'habitta', 'dulcegracia'];
 
     // Note Data
     const notesData = [
