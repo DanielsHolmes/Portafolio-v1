@@ -62,7 +62,8 @@ const PortfolioApp = (function() {
                 "Img Proyectos/Saldo/Saldo gallery/01.png",
                 "Img Proyectos/Saldo/Saldo gallery/02.png",
                 "Img Proyectos/Saldo/Saldo gallery/03.png",
-                "Img Proyectos/Saldo/Saldo gallery/04.png"
+                "Img Proyectos/Saldo/Saldo gallery/04.png",
+                "Img Proyectos/Saldo/Saldo gallery/Saldo gallery/5.png"
             ]
         },
         dulcegracia: {
