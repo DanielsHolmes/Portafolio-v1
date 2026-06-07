@@ -1,0 +1,18 @@
+Name: Choucair
+Date: 2024
+Services: 
+- Web Design
+- UI Design
+- UX Design
+- Auditoria de Usabilidad 
+
+Tags: UX Research, Information Architecture, Web Design, Usability
+
+Resumen:
+Choucair es una empresa que necesitaba mejorar su página de producto para atraer clientes potenciales.
+
+El Reto:
+El diseño de producto anterior pese a ser un desarrollo robusto y funcional no llenaba los requerimientos de percepcion de los clientes potenciales ya que eligian otros competidores inferiores solo porque "sus productos se ven mas profesionales"
+
+La Solución:
+Se rediseña el producto con un estilo futuriasta y elegante, separandonos de la competencia al usar una paleta de colores fuerte y oscura, como resultado los clientes actuales y los nuevos perciben un servicio de mayor calidad que refleja la robustes del producto.

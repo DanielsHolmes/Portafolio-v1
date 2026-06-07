@@ -127,11 +127,52 @@ const PortfolioApp = (function() {
                 "Img Proyectos/habitta/habitta gallery/02.png",
                 "Img Proyectos/habitta/habitta gallery/03.png"
             ]
+        },
+        artinenergy: {
+            id: 'artinenergy',
+            title: "Artin Energy",
+            year: "2024",
+            category: "UX Research • Information Architecture • Web Design",
+            services: ["Web Design", "UI Design", "UX Design", "Auditoria de Usabilidad"],
+            tags: "UX/UI Design, UX Research, Information Architecture, Web Design, Usability",
+            description: "La empresa Artin Energy contaba con el producto perfecto y con expansión internacional; pero, al necesitar entrar en un fondo de inversión para expandirse, optaron por mejorar su percepción general.",
+            reto: "La página web anterior no explicaba qué hacía el producto exactamente ni los beneficios que tendrían las personas al contar con ellos.",
+            solucion: "Se rediseña por completo el sitio web, otorgándole un aspecto más profesional para mejorar la percepción de la marca ante los usuarios y compradores. Como resultado, se logra atraer la inversión necesaria para expandirse a más países.",
+            banner: "Img Proyectos/ArtinEnergy gallery/ArtinEnergy Banner.png",
+            images: [
+                "Img Proyectos/ArtinEnergy gallery/ArtinEnergy gallery/1.png",
+                "Img Proyectos/ArtinEnergy gallery/ArtinEnergy gallery/2.png",
+                "Img Proyectos/ArtinEnergy gallery/ArtinEnergy gallery/3.png",
+                "Img Proyectos/ArtinEnergy gallery/ArtinEnergy gallery/4.png",
+                "Img Proyectos/ArtinEnergy gallery/ArtinEnergy gallery/5.png",
+                "Img Proyectos/ArtinEnergy gallery/ArtinEnergy gallery/6.png",
+                "Img Proyectos/ArtinEnergy gallery/ArtinEnergy gallery/7.png"
+            ]
+        },
+        choucair: {
+            id: 'choucair',
+            title: "Choucair",
+            year: "2024",
+            category: "UX Research • Information Architecture • Web Design",
+            services: ["Web Design", "UI Design", "UX Design", "Auditoria de Usabilidad"],
+            tags: "UX/UI Design, UX Research, Information Architecture, Web Design, Usability",
+            description: "Choucair es una empresa que necesitaba mejorar su página de producto para atraer clientes potenciales.",
+            reto: "El diseño de producto anterior pese a ser un desarrollo robusto y funcional no llenaba los requerimientos de percepcion de los clientes potenciales ya que eligian otros competidores inferiores solo porque \"sus productos se ven mas profesionales\"",
+            solucion: "Se rediseña el producto con un estilo futuriasta y elegante, separandonos de la competencia al usar una paleta de colores fuerte y oscura, como resultado los clientes actuales y los nuevos perciben un servicio de mayor calidad que refleja la robustes del producto.",
+            banner: "Img Proyectos/Choucair/Choucair Banner.png",
+            images: [
+                "Img Proyectos/Choucair/Choucair gallery/1.png",
+                "Img Proyectos/Choucair/Choucair gallery/2.png",
+                "Img Proyectos/Choucair/Choucair gallery/3.png",
+                "Img Proyectos/Choucair/Choucair gallery/4.png",
+                "Img Proyectos/Choucair/Choucair gallery/5.png",
+                "Img Proyectos/Choucair/Choucair gallery/6.png"
+            ]
         }
     };
 
     // Project order for navigation
-    const projectOrder = ['conalpe', 'corsox', 'saldo', 'habitta', 'dulcegracia'];
+    const projectOrder = ['conalpe', 'corsox', 'saldo', 'habitta', 'dulcegracia', 'artinenergy', 'choucair'];
 
     // Note Data
     const notesData = [
